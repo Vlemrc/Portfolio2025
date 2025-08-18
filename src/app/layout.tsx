@@ -19,6 +19,9 @@ export default function RootLayout({
       <body>
         <main className="bg-bgPrimary h-full flex flex-row">
           <Sidebar />
+          <p className="text-white uppercase text-[10px] font-normal absolute bottom-14 right-10">
+            Built with claws and passion <br /> by Victor Lemercier
+          </p>
           {children}
         </main>
       </body>

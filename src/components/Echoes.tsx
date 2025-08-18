@@ -1,14 +1,14 @@
 export default function Echoes() {
     return (
         <>
-            <h3 className="pt-12 uppercase text-xs font-bold pb-2.5">My echoes</h3>
+            <h3 className="pt-12 uppercase text-[10px] font-bold pb-5">My echoes</h3>
             <iframe 
                 data-testid="embed-iframe" 
                 style={{ borderRadius: "12px" }}
-                src="https://open.spotify.com/embed/track/2oKOGvdJ5BQEiguaSQJJpc?utm_source=generator" 
+                src="https://open.spotify.com/embed/track/2oKOGvdJ5BQEiguaSQJJpc?utm_source=generator&theme=0" 
                 width="100%" 
                 height="90"
-                className="w-1/2"
+                className="w-2/3"
                 frameBorder="0" 
                 scrolling="no"
                 allowFullScreen={true}
@@ -18,10 +18,10 @@ export default function Echoes() {
             <iframe
                 data-testid="embed-iframe"
                 style={{ borderRadius: "12px" }}
-                src="https://open.spotify.com/embed/track/6NiRlK5sphGYxU4UPVlN4p?utm_source=generator"
+                src="https://open.spotify.com/embed/track/6NiRlK5sphGYxU4UPVlN4p?utm_source=generator&theme=0"
                 width="100%"
                 height="90"
-                className="w-1/2"
+                className="w-2/3"
                 frameBorder="0"
                 scrolling="no"
                 allowFullScreen={true}
