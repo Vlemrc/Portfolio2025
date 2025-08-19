@@ -4,10 +4,12 @@ import Logo from "@/components/Logo"
 import Socials from "@/components/Socials"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
+import useNavClickSound from "@/lib/hooks/useNavClickSound"
 
 export default function Sidebar() {
   const pathname = usePathname()
   const [translateY, setTranslateY] = useState(-12)
+  const playClick = useNavClickSound()
 
   useEffect(() => {
     let newTranslateY = -8 // Default for "/"
@@ -30,16 +32,16 @@ export default function Sidebar() {
         <nav className="pt-[200px] flex flex-row justify-between">
           <ul className="flex flex-col gap-5 text-white w-full">
             <li className="w-full">
-              <Link href="/">Projects</Link>
+              <Link href="/" onClick={playClick}>Projects</Link>
             </li>
             <li className="w-full">
-              <Link href="/about">About Me</Link>
+              <Link href="/about" onClick={playClick}>About Me</Link>
             </li>
             <li className="w-full">
-              <Link href="/path">Path</Link>
+              <Link href="/path" onClick={playClick}>Path</Link>
             </li>
             <li className="w-full">
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact" onClick={playClick}>Contact</Link>
             </li>
           </ul>
           <div
@@ -48,7 +50,7 @@ export default function Sidebar() {
             style={{ transform: `translateY(${translateY}px)` }}
           ></div>
         </nav>
-        <div className="flex flex-col gap-8 pb-14">
+        <div className="flex flex-col gap-8 pb-10">
           <Socials />
           <p className="text-white uppercase text-[10px] font-normal">
             Web developer <br /> available oct. 2025
