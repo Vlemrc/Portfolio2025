@@ -17,7 +17,7 @@ export default function AboutPage() {
                 <Image src="/PProfilClearBg.png" alt="Me" className="rounded-lg w-[140px] h-[140px] object-cover" width={156} height={156} />
             </div>
             <h3 className="pt-10 uppercase text-[10px] font-bold pb-5 text-white">My background</h3>
-            <div className="flex flex-col gap-6 text-sm">
+            <div className="flex flex-col gap-6 text-sm mb-14">
                 <p className="text-gray-300">
                 Growing up in Bayeux, a symbol of France&apos;s resilience during WWII, my home was a vibrant mix of creativity and analytical thinking, shaped by my father&apos;s career as an IT Specialist and my mother&apos;s work as a shopkeeper. This unique environment profoundly influenced my outlook.
                 </p>
