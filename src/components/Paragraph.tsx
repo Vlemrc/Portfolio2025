@@ -1,80 +1,102 @@
-"use client";
-import { useRef, useEffect, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+"use client"
+import { useRef, useEffect, useState, type ReactNode } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
-gsap.registerPlugin(ScrollTrigger);
-
-interface ParagraphProps {
-  content: string;
+type ParagraphProps = {
+  children: ReactNode
+  starttime?: number
+  className?: string
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({ content }) => {
-  const contentSplit: string[] = content.split(" ");
-  const [IsVisible, setIsVisible] = useState<boolean>(false);
+export default function Paragraph ({ children, starttime = 0, className = "" }: ParagraphProps) {
+  const [isVisible, setIsVisible] = useState(false)
+  const paragraphRef = useRef<HTMLParagraphElement>(null)
 
-  // J'incrémente mon delay à chaque span
-  let time: number = 0;
-  const paragraphRef = useRef<HTMLParagraphElement>(null);
-  
   useEffect(() => {
-    const paragraph = paragraphRef.current;
+    const paragraph = paragraphRef.current
+    if (!paragraph) return
 
-    if (paragraph) {
-      const spans = paragraph.querySelectorAll("span");
-      let time: number = 0;
-      console.log(spans);
-      spans.forEach((span: Element) => {
-        // Modifier pour le délai d'apparition du texte
-        time += 0.02;
-        (span as HTMLElement).style.transitionDelay = `${time}s`;
-      });
-    }
-  }, []);
-
-  // Anim GSAP
-  useEffect(() => {
-    const paragraph = paragraphRef.current;
-
-    gsap.to(paragraph, {
+    const trigger = gsap.to(paragraph, {
       scrollTrigger: {
         trigger: paragraph,
         start: "-30% 80%",
         end: "100% 80%",
         onEnter() {
-          setIsVisible(true);
+          setTimeout(() => setIsVisible(true), starttime * 1000)
         },
       },
-    });
-  });
+    })
+
+    return () => {
+      if (trigger.scrollTrigger) trigger.scrollTrigger.kill()
+      trigger.kill()
+    }
+  }, [starttime])
+
+  // Fonction récursive pour traiter les éléments et ajouter l'animation
+  const processChildren = (children: ReactNode, wordIndex: { current: number }): ReactNode => {
+    if (typeof children === "string") {
+      // Diviser le texte en mots et les animer
+      return children.split(" ").map((word, index) => {
+        const currentIndex = wordIndex.current++
+        return (
+          <span
+            key={`word-${currentIndex}`}
+            className="inline-block relative transition-transform duration-500"
+            style={
+              isVisible
+                ? {
+                    transition:
+                      "clip-path .5s cubic-bezier(0.215, 0.61, 0.355, 1), transform .5s cubic-bezier(0.215, 0.61, 0.355, 1)",
+                    transform: "rotate(0deg) translate3d(0, 0, 0)",
+                    clipPath: "polygon(0% 10%, 100% 10%, 100% 110%, 0% 110%)",
+                    transitionDelay: `${currentIndex * 0.01}s`,
+                  }
+                : {
+                    transition:
+                      "clip-path .5s cubic-bezier(0.215, 0.61, 0.355, 1), transform .5s cubic-bezier(0.215, 0.61, 0.355, 1)",
+                    transform: "rotate(-5deg) translate3d(0, -100%, 0)",
+                    clipPath: "polygon(0% 110%, 100% 110%, 100% 210%, 0% 210%)",
+                    transitionDelay: `${currentIndex * 0.01}s`,
+                  }
+            }
+          >
+            {word}
+            {index < children.split(" ").length - 1 && " "}
+          </span>
+        )
+      })
+    }
+
+    if (Array.isArray(children)) {
+      return children.map((child, index) => processChildren(child, wordIndex))
+    }
+
+    if (children && typeof children === "object" && "props" in children) {
+      const element = children as any
+      // Pour les liens et autres éléments, on traite leur contenu
+      if (element.props && element.props.children) {
+        return {
+          ...element,
+          props: {
+            ...element.props,
+            children: processChildren(element.props.children, wordIndex),
+          },
+        }
+      }
+    }
+
+    return children
+  }
+
+  const wordIndex = { current: 0 }
+  const processedChildren = processChildren(children, wordIndex)
 
   return (
-    <p ref={paragraphRef} className="flex flex-row flex-wrap gap-x-[4px]">
-      {contentSplit.map((word: string, index: number) => (
-        <span
-          key={index}
-          className="inline-block relative transition-transform duration-500"
-          style={
-            IsVisible
-              ? {
-                  transition:
-                    "clip-path .5s cubic-bezier(0.215, 0.61, 0.355, 1), transform .5s cubic-bezier(0.215, 0.61, 0.355, 1)",
-                  transform: "rotate(0deg) translate3d(0, 0, 0)",
-                  clipPath: "polygon(0% 10%, 100% 10%, 100% 110%, 0% 110%)",
-                }
-              : {
-                  transition:
-                    "clip-path .5s cubic-bezier(0.215, 0.61, 0.355, 1), transform .5s cubic-bezier(0.215, 0.61, 0.355, 1)",
-                  transform: "rotate(-5deg) translate3d(0, -100%, 0)",
-                  clipPath: "polygon(0% 110%, 100% 110%, 100% 210%, 0% 210%)",
-                }
-          }
-        >
-          {word}
-        </span>
-      ))}
+    <p ref={paragraphRef} className={`flex flex-row flex-wrap gap-x-[4px] ${className}`}>
+      {processedChildren}
     </p>
-  );
-};
-
-export default Paragraph;
+  )
+}
