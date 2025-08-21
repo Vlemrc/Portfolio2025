@@ -1,5 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 interface LogoProps {
   color?: string | undefined
@@ -90,9 +91,10 @@ export default function Logo({ color }: LogoProps) {
   }
 
   return (
-    <div
+    <Link
       className={`absolute z-10 top-6 left-6 flex items-center justify-center w-[200px] cursor-pointer ${color ? "opacity-70" : "opacity-100"} hover:opacity-100 transition-opacity duration-300 ease-in-out`}
-      style={{ perspective: "1000px" }} 
+      style={{ perspective: "1000px" }}
+      href="/"
     >
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +116,7 @@ export default function Logo({ color }: LogoProps) {
           />
         ))}
       </motion.svg>
-    </div>
+    </Link>
   )
 }
 

@@ -25,7 +25,6 @@ export default function AnimatedLinkedin({ color }: IconInProps) {
       target="_blank"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" className="w-full h-full text-blue-600 fill-current">
-        {/* Circle (dot of the i) */}
         <motion.circle
           cx="2.04"
           cy="2.05"
@@ -48,7 +47,6 @@ export default function AnimatedLinkedin({ color }: IconInProps) {
           }
         />
 
-        {/* Rectangle (vertical bar of the i) - Now with more pronounced deformation */}
         <motion.rect
           x=".28"
           width="3.53"
@@ -74,7 +72,6 @@ export default function AnimatedLinkedin({ color }: IconInProps) {
           }
         />
 
-        {/* Path (rest of the LinkedIn logo) */}
         <path
           fill={color ? color : "#fff"}
           className="transition-colors duration-300 ease-in-out"
