@@ -13,7 +13,8 @@ export const data: ProjectType[] = [
         year: 2024,
         link: "https://lespetalesobscurs.vercel.app/",
         color: "rgb(242 109 103)",
-        bgcolor: "#062718",
+        bgcolor: "rgb(6 39 24)",
+        bordercolor: "rgba(242 109 103, 0.5)",
         type: "Personal project",
     },
     {
@@ -26,8 +27,9 @@ export const data: ProjectType[] = [
         ],
         year: 2024,
         link: "https://www.observatoirecetelem-quiz.com/habitat-eu-2024",
-        color: "#2A8054",
+        color: "rgb(42 128 84)",
         bgcolor: "rgb(238 238 238)",
+        bordercolor: "rgba(42 128 84, 0.5)",
         type: "BNP Paribas",
     },
     {
@@ -40,8 +42,9 @@ export const data: ProjectType[] = [
         ],
         year: 2025,
         link: "#",
-        color: "#ffffff",
+        color: "rgb(255 255 255)",
         bgcolor: "rgb(100 6 35)",
+        bordercolor: "rgba(255 255 255, 0.5)",
         type: "Eighty Two Club",
     },
     {
@@ -54,8 +57,9 @@ export const data: ProjectType[] = [
         ],
         year: 2024,
         link: "https//www.bimota.fr",
-        color: "#E30613",
+        color: "rgb(227 6 19)",
         bgcolor: "rgb(238 238 238)",
+        bordercolor: "rgba(227 6 19, 0.5)",
         type: "Bimota",
     },
     {
@@ -68,8 +72,9 @@ export const data: ProjectType[] = [
         ],
         year: 2025,
         link: "#",
-        color: "#ffc300",
+        color: "rgb(255 195 0)",
         bgcolor: "rgb(150 150 150)",
+        bordercolor: "rgba(255 195 0, 0.5)",
         type: "Degree project",
     }
 ]

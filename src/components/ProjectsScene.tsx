@@ -6,6 +6,8 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib"
 import type { Group } from "three"
 import { data } from "@/data/data"
 import {ProjectType} from "@/types/ProjectType"
+import { useRouter } from "next/navigation";
+import useProjectStore from "@/stores/useProjectStore"
 
 
 function Loader() {
@@ -23,9 +25,6 @@ function Loader() {
 
 interface FloatingDivsProps {
   items: ProjectType[];
-  setActiveProject: (id: number | null) => void;
-  activeProject: number | null;
-  setIsVisible: (isVisible: boolean) => void;
 }
 
 interface FloatingSceneProps {
@@ -35,12 +34,8 @@ interface FloatingSceneProps {
 }
 
 export default function FloatingScene({ 
-  activeProject, 
-  setActiveProject, 
-  setIsVisible 
 }: FloatingSceneProps) {
   const items = data
-
   const controlsRef = useRef<OrbitControlsImpl>(null)
 
   return (
@@ -52,10 +47,7 @@ export default function FloatingScene({
         <pointLight position={[-10, -10, -10]} />
 
         <FloatingDivs 
-          items={items} 
-          setActiveProject={setActiveProject} 
-          activeProject={activeProject} 
-          setIsVisible={setIsVisible}
+          items={items}
         />
 
         <OrbitControls
@@ -73,13 +65,16 @@ export default function FloatingScene({
   )
 }
 
-function FloatingDivs({ items, setActiveProject, activeProject, setIsVisible }: FloatingDivsProps) {
+function FloatingDivs({ items }: FloatingDivsProps) {
   const radius = 4
   const groupRef = useRef<Group>(null)
+  const router = useRouter();
+  const { activeProject, setActiveProject } = useProjectStore();
 
-  const handleVisible = (id: number) => {
-    setActiveProject(id)
-    setIsVisible(true)
+
+  const handleVisible = (item: ProjectType) => {
+    router.replace(`/projects/${item.id}`)
+    setActiveProject(item);
   }
 
   return (
@@ -95,7 +90,7 @@ function FloatingDivs({ items, setActiveProject, activeProject, setIsVisible }: 
               <div
                 className="p-4 h-[520px] w-[800px] bg-white bg-opacity-80 backdrop-blur-md rounded-xl shadow-lg grayscale hover:grayscale-0 transform transition-all duration-300 hover:scale-105 cursor-pointer"
                 style={{backgroundImage: `url(${item.image})`, backgroundSize: "cover", backgroundPosition: "center"}}
-                onClick={() => handleVisible(item.id)}
+                onClick={() => handleVisible(item)}
               >
               </div>
             </div>

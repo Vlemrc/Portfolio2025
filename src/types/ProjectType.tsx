@@ -8,5 +8,11 @@ export interface ProjectType {
   link: string
   color: string
   bgcolor: string
+  bordercolor: string
   type: string
+}
+
+export interface ProjectStore {
+  activeProject: ProjectType | null;
+  setActiveProject: (project: ProjectType | null) => void;
 }
