@@ -27,14 +27,14 @@ export default function PathPage() {
   ]
   
   useEffect(() => {
-    const timer = setTimeout(() => setShowTitle(true), 550);
+    const timer = setTimeout(() => setShowTitle(true), 350);
     return () => {
       clearTimeout(timer);
     };
   }, []);
 
   useEffect(() => {
-    const startDelay = 500
+    const startDelay = 400
 
     tools.forEach((_, index) => {
       const timer = setTimeout(
@@ -57,7 +57,7 @@ export default function PathPage() {
       <div className="text-white w-1/2">
         <AnimatedTitle text="I&apos;m&nbsp;a&nbsp;spinosaur" className="text-[200px]/[1.2] font-arges uppercase font-bold text-white mb-10" delay={50} />
         <div className="text-gray-300 w-3/4 text-sm">
-          <Paragraph starttime={0.400}>Millions of years of evolution… and I ended up making websites. Part designer, part developer, part dinosaur. 100% passionate about building great things. Extinct? Maybe. Skilled? Definitely.</Paragraph>
+          <Paragraph starttime={0.200}>Millions of years of evolution… and I ended up making websites. Part designer, part developer, part dinosaur. 100% passionate about building great things. Extinct? Maybe. Skilled? Definitely.</Paragraph>
         </div>
         <div className="overflow-hidden mt-10 mb-5">
           <h3 className={`uppercase text-[10px] font-bold text-white ${showTitle ? "translate-y-0" : "-translate-y-4"} transition-transform duration-300`}>TOOL STACK</h3>
