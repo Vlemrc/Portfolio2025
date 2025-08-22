@@ -6,7 +6,7 @@ export default function Resume() {
     const [showTitle, setShowTitle] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => setShowTitle(true), 1300);
+        const timer = setTimeout(() => setShowTitle(true), 1000);
         return () => clearTimeout(timer);
     }, []);
 

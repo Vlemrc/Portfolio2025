@@ -1,12 +1,13 @@
 "use client"
 import { motion } from "framer-motion"
 import Link from "next/link"
-
+import useProjectStore from "@/stores/useProjectStore"
 interface LogoProps {
   color?: string | undefined
 }
 
 export default function Logo({ color }: LogoProps) {
+  const { activeProject, setActiveProject } = useProjectStore();
   const paths = [
     "M182.02,117h26.93l-27.32,273.95h2.34l56.58-273.95h26.93l-70.24,304.38h-37.85l22.63-304.38Z",
     "M278.02,117h27.32l-44.88,304.38h-27.32l44.88-304.38Z",
@@ -95,6 +96,7 @@ export default function Logo({ color }: LogoProps) {
       className={`absolute z-10 top-6 left-6 flex items-center justify-center w-[200px] cursor-pointer ${color ? "opacity-70" : "opacity-100"} hover:opacity-100 transition-opacity duration-300 ease-in-out`}
       style={{ perspective: "1000px" }}
       href="/"
+      onClick={() => setActiveProject(null)}
     >
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +112,7 @@ export default function Logo({ color }: LogoProps) {
             key={index}
             custom={index}
             variants={letterVariants}
-            fill={color ? color : "#fff"}
+            fill={activeProject ? activeProject.color : "#fff"}
             className="transition-colors duration-300 transition"
             d={path}
           />

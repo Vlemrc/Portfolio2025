@@ -5,7 +5,7 @@ export default function SocialIcons() {
     const [showTitle, setShowTitle] = useState(false);
       
     useEffect(() => {
-    const timer = setTimeout(() => setShowTitle(true), 1200);
+    const timer = setTimeout(() => setShowTitle(true), 1000);
     return () => {
         clearTimeout(timer);
     };
