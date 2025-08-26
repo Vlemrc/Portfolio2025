@@ -8,9 +8,10 @@ type ParagraphProps = {
   children: ReactNode
   starttime?: number
   className?: string
+  style?: React.CSSProperties
 }
 
-export default function Paragraph ({ children, starttime = 0, className = "" }: ParagraphProps) {
+export default function Paragraph ({ children, starttime = 0, className = "", style }: ParagraphProps) {
   const [isVisible, setIsVisible] = useState(false)
   const paragraphRef = useRef<HTMLParagraphElement>(null)
 
@@ -41,27 +42,28 @@ export default function Paragraph ({ children, starttime = 0, className = "" }: 
       // Diviser le texte en mots et les animer
       return children.split(" ").map((word, index) => {
         const currentIndex = wordIndex.current++
+        // Fusionner le style d'animation et le style passé en prop
+        const animatedStyle = isVisible
+          ? {
+              transition:
+                "clip-path .5s cubic-bezier(0.215, 0.61, 0.355, 1), transform .5s cubic-bezier(0.215, 0.61, 0.355, 1)",
+              transform: "rotate(0deg) translate3d(0, 0, 0)",
+              clipPath: "polygon(0% 10%, 100% 10%, 100% 110%, 0% 110%)",
+              transitionDelay: `${currentIndex * 0.01}s`,
+            }
+          : {
+              transition:
+                "clip-path .5s cubic-bezier(0.215, 0.61, 0.355, 1), transform .5s cubic-bezier(0.215, 0.61, 0.355, 1)",
+              transform: "rotate(-5deg) translate3d(0, -100%, 0)",
+              clipPath: "polygon(0% 110%, 100% 110%, 100% 210%, 0% 210%)",
+              transitionDelay: `${currentIndex * 0.01}s`,
+            }
+        const mergedStyle = style ? { ...animatedStyle, ...style } : animatedStyle
         return (
           <span
             key={`word-${currentIndex}`}
             className="inline-block relative transition-transform duration-500"
-            style={
-              isVisible
-                ? {
-                    transition:
-                      "clip-path .5s cubic-bezier(0.215, 0.61, 0.355, 1), transform .5s cubic-bezier(0.215, 0.61, 0.355, 1)",
-                    transform: "rotate(0deg) translate3d(0, 0, 0)",
-                    clipPath: "polygon(0% 10%, 100% 10%, 100% 110%, 0% 110%)",
-                    transitionDelay: `${currentIndex * 0.01}s`,
-                  }
-                : {
-                    transition:
-                      "clip-path .5s cubic-bezier(0.215, 0.61, 0.355, 1), transform .5s cubic-bezier(0.215, 0.61, 0.355, 1)",
-                    transform: "rotate(-5deg) translate3d(0, -100%, 0)",
-                    clipPath: "polygon(0% 110%, 100% 110%, 100% 210%, 0% 210%)",
-                    transitionDelay: `${currentIndex * 0.01}s`,
-                  }
-            }
+            style={mergedStyle}
           >
             {word}
             {index < children.split(" ").length - 1 && " "}

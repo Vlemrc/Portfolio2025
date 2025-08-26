@@ -5,7 +5,7 @@ export const data: ProjectType[] = [
     {
         id: 1,
         title: "Les pétales obscurs",
-        description: "Promotional website for a fictional clothing brand. Bloom in the shadows",
+        description: "I made this promotional website for a fictional clothing brand. The goal was to train with GSAP. Bloom in the shadows.",
         image: "/images/lespetalesobscurs.png",
         stack: [
             "Next", "TailwindCSS", "GSAP"

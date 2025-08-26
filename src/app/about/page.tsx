@@ -12,7 +12,7 @@ export default function AboutPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => setShowTitle(true), 0);
-    const timerImage = setTimeout(() => setShowImage(true), 1700);
+    const timerImage = setTimeout(() => setShowImage(true), 1500);
     return () => {
       clearTimeout(timer);
       clearTimeout(timerImage);
