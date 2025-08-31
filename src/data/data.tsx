@@ -73,7 +73,7 @@ export const data: ProjectType[] = [
         year: 2025,
         link: "#",
         color: "rgb(255 195 0)",
-        bgcolor: "rgb(150 150 150)",
+        bgcolor: "rgb(40 40 40)",
         bordercolor: "rgba(255 195 0, 0.5)",
         type: "Degree project",
     }

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ContactPage() {
   return (
-    <div className="w-3/4 pl-20 flex flex-col h-full items-start justify-center text-white text-sm">
+    <div className="w-3/4 pl-20 flex flex-col h-full pt-[120px] text-white text-sm">
       <div className="w-1/3">
         <Paragraph starttime={0.6}>
           Thanks for stopping by. I hope you like your visit here. This site reflects my path, exploring, growing, and

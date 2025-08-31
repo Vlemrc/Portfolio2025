@@ -15,7 +15,7 @@ function Loader() {
   return (
     <Html center>
       <div className="flex flex-col items-center justify-center">
-        <p className="text-white mt-4 font-sixcaps text-[150px]">
+        <p className="text-white mt-4 font-arges text-[150px]">
           {progress.toFixed(0)}%
         </p>
       </div>
@@ -27,14 +27,7 @@ interface FloatingDivsProps {
   items: ProjectType[];
 }
 
-interface FloatingSceneProps {
-  activeProject: number | null;
-  setActiveProject: (id: number | null) => void;
-  setIsVisible: (isVisible: boolean) => void;
-}
-
-export default function FloatingScene({ 
-}: FloatingSceneProps) {
+export default function FloatingScene() {
   const items = data
   const controlsRef = useRef<OrbitControlsImpl>(null)
 
