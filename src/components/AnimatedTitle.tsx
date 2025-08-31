@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 
 interface AnimatedTitleProps {
-  text: string
+  text?: string
   className?: string
   delay?: number // délai entre chaque lettre en ms (défaut: 100ms)
 }
@@ -12,12 +12,12 @@ export default function AnimatedTitle({ text, className = "", delay = 100 }: Ani
 
   useEffect(() => {
     // Initialiser toutes les lettres comme invisibles
-    setVisibleLetters(new Array(text.length).fill(false))
+    setVisibleLetters(new Array(text?.length).fill(false))
 
     // Créer les timers pour chaque lettre
     const timers: NodeJS.Timeout[] = []
 
-    for (let i = 0; i < text.length; i++) {
+    for (let i = 0; i < text?.length; i++) {
       const timer = setTimeout(() => {
         setVisibleLetters((prev) => {
           const newState = [...prev]

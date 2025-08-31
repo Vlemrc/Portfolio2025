@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, type CSSProperties } from "react"
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
 
 interface ArrowCrossProps {
   isToggled?: boolean
@@ -10,14 +10,21 @@ interface ArrowCrossProps {
   className?: string
   color?: string
   onQuit?: () => void
+  onResetAnimations?: () => void
 }
 
-export function ArrowCross({ isToggled: controlledToggled, onToggle, size = 24, color, onQuit }: ArrowCrossProps) {
+export function ArrowCross({
+  isToggled: controlledToggled,
+  onToggle,
+  size = 24,
+  color,
+  onQuit,
+  onResetAnimations,
+}: ArrowCrossProps) {
   const [internalToggled, setInternalToggled] = useState(false)
-  const router = useRouter();
+  const router = useRouter()
 
   const isToggled = controlledToggled !== undefined ? controlledToggled : internalToggled
-  console.log(color)
 
   const handleClick = () => {
     const newValue = !isToggled
@@ -25,6 +32,10 @@ export function ArrowCross({ isToggled: controlledToggled, onToggle, size = 24, 
       setInternalToggled(newValue)
     }
     onToggle?.(newValue)
+
+    if (onResetAnimations) {
+      onResetAnimations()
+    }
   }
 
   const handleQuit = () => {
@@ -40,7 +51,6 @@ export function ArrowCross({ isToggled: controlledToggled, onToggle, size = 24, 
       aria-label={isToggled ? "Fermer" : "Ouvrir"}
     >
       <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{ transition: "all 0.3s ease-in-out" }}>
-
         {/* Ligne diagonale 1 - de bas-gauche vers haut-droite (45°) */}
         <path
           d="M6 18L18 6"
