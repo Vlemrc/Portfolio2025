@@ -75,6 +75,6 @@ export const data: ProjectType[] = [
         color: "rgb(255 195 0)",
         bgcolor: "rgb(40 40 40)",
         bordercolor: "rgba(255 195 0, 0.5)",
-        type: "Degree project",
+        type: "Master's Degree project",
     }
 ]
