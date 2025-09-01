@@ -3,7 +3,6 @@ import useProjectStore from "@/stores/useProjectStore"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Paragraph from "@/components/Paragraph"
 import { ArrowCross } from "@/components/ArrowCross"
 import { AnimatedSpan } from "@/components/AnimatedSpan"
 import { motion } from "framer-motion"
@@ -67,7 +66,7 @@ export default function ProjetPage() {
             duration: 2,
             ease: [0.16, 1, 0.3, 1]
           }}
-          className={`${displayProject ? "w-full max-h-[400px]" : "w-[90%]"} max-h-[500px] overflow-hidden`}
+          className={`${displayProject ? "w-full max-h-[400px]" : "w-[90%] max-h-[500px]"} overflow-hidden`}
         >
           <Image
             src={activeProject?.image ?? "/placeholder.png"}
@@ -183,7 +182,7 @@ export default function ProjetPage() {
                 </motion.p>
               </div>
             </button>
-            {displayProject && activeProject && (
+            {displayProject && activeProject && activeProject.link && (
               <Link
                 target="_blank"
                 href={activeProject.link}

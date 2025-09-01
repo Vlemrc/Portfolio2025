@@ -5,7 +5,6 @@ import Experiences from "@/components/Experiences"
 import Paragraph from "@/components/Paragraph"
 import Resume from "@/components/Resume"
 import SocialIcons from "@/components/SocialIcons"
-import { div } from "framer-motion/client"
 import { useEffect, useState } from "react";
 
 export default function PathPage() {
@@ -37,7 +36,7 @@ export default function PathPage() {
     const startDelay = 400
 
     tools.forEach((_, index) => {
-      const timer = setTimeout(
+      setTimeout(
         () => {
           setVisibleItems((prev) => [...prev, index])
         },
