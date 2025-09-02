@@ -3,6 +3,7 @@ import "@/styles/normalize.css";
 import "@/styles/variables.css";
 import "@/styles/globals.css";
 import Sidebar from "@/components/Sidebar";
+import Background from "@/components/Background";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="bg-bgPrimary h-full flex flex-row">
+        <main className="h-full flex flex-row w-full">
+          <Background />
           <Sidebar />
           {children}
         </main>

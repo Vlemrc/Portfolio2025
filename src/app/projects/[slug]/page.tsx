@@ -15,19 +15,16 @@ export default function ProjetPage() {
   const [showButton2, setShowButton2] = useState(false)
   const [showVisit, setShowVisit] = useState(false)
   const [animationKey, setAnimationKey] = useState(0)
-  const [showButton3, setShowButton3] = useState(false)
 
   useEffect(() => {
     if (displayProject) {
       const timer = setTimeout(() => setShowButton1(true), 100)
       const timer2 = setTimeout(() => setShowButton2(true), 1000)
       const timer3 = setTimeout(() => setShowVisit(true), 800)
-      const timer4 = setTimeout(() => setShowButton3(true), 1800)
       return () => {
         clearTimeout(timer)
         clearTimeout(timer2)
         clearTimeout(timer3)
-        clearTimeout(timer4)
       }
     }
   }, [displayProject])
@@ -52,7 +49,6 @@ export default function ProjetPage() {
 
   return (
     <div
-      style={{ backgroundColor: activeProject?.bgcolor }}
       className={`flex-1 pl-20 transition-colors duration-300 pr-10 pt-20 flex flex-row items-center justify-between`}
     >
       <div
@@ -66,7 +62,7 @@ export default function ProjetPage() {
             duration: 2,
             ease: [0.16, 1, 0.3, 1]
           }}
-          className={`${displayProject ? "w-full max-h-[400px]" : "w-[90%] max-h-[500px]"} overflow-hidden`}
+          className={`${displayProject ? "w-full max-h-[400px]" : "max-h-[500px]"} w-[90%]  overflow-hidden`}
         >
           <Image
             src={activeProject?.image ?? "/placeholder.png"}
@@ -172,8 +168,8 @@ export default function ProjetPage() {
                   initial={{ opacity: 0, x: -40 }}
                   animate={{ opacity: 1, x: 0, }}
                   transition={{
-                    opacity: { duration: 0.2, delay: 2, ease: "easeInOut" },
-                    x: { duration: 0.2, delay: 2, ease: "easeOut" }
+                    opacity: { duration: 0.2, delay: 2.05, ease: "easeInOut" },
+                    x: { duration: 0.3, delay: 2.05, ease: "easeOut" }
                   }}
                   style={{ color: activeProject?.color }}
                   className={`uppercase text-xs font-bold`}

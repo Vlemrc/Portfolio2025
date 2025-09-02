@@ -39,7 +39,6 @@ export default function Sidebar() {
       <aside
         className={`flex-shrink-0 w-1/4 max-w-[300px] min-w-[230px] h-full border-r pl-10 transition-colors duration-300`}
         style={{ 
-          backgroundColor: activeProject ? activeProject.bgcolor : undefined, 
           borderColor: activeProject ? activeProject.bordercolor : 'rgba(83,74,145,0.5)'
         }}
       >
