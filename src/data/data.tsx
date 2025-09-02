@@ -16,6 +16,7 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(6 39 24)",
         bordercolor: "rgba(242 109 103, 0.5)",
         type: "Personal project",
+        slug: "lespetalesobscurs"
     },
     {
         id: 2,
@@ -31,6 +32,7 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(238 238 238)",
         bordercolor: "rgba(42 128 84, 0.5)",
         type: "BNP Paribas",
+        slug: "quiz-bnp"
     },
     {
         id: 3,
@@ -46,6 +48,7 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(100 6 35)",
         bordercolor: "rgba(255 255 255, 0.5)",
         type: "Eighty Two Club",
+        slug: "eightytwo"
     },
     {
         id: 4,
@@ -61,6 +64,7 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(238 238 238)",
         bordercolor: "rgba(227 6 19, 0.5)",
         type: "Bimota",
+        slug: "bimota"
     },
     {
         id: 5,
@@ -76,5 +80,6 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(40 40 40)",
         bordercolor: "rgba(255 195 0, 0.5)",
         type: "Master's Degree project",
+        slug: "notes-ai"
     }
 ]
