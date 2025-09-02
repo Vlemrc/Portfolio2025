@@ -20,26 +20,27 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="w-3/4 pl-20 pt-[70px] flex flex-row">
+    <div className="w-full flex pt-[120px] flex-col h-full px-8
+    lg:w-3/4 lg:pl-20 lg:pt-[70px] lg:flex-row lg:z-0">
       <div className="text-white">
-        <div className="text-[200px]/[1.2] font-arges flex flex-row mb-12">
-          <AnimatedTitle text="511" className="text-[200px]/[1.2] font-bold text-white" delay={100} />
+        <div className="font-arges flex flex-row lg:mb-12 mb-6">
+          <AnimatedTitle text="511" className="lg:text-[200px]/[1.2] text-[140px]/[1] font-bold text-white" delay={100} />
         </div>
-        <div className="text-gray-300 w-3/4 text-sm">
+        <div className="text-gray-300 w-full lg:w-3/4 text-sm">
           <Paragraph>
             Nice to meet you. I’m Victor Lemercier, a web developer based in Paris and a recent Master’s graduate. I aim to bring creativity and attention to detail to innovative projects. Driven to deliver seamless user experiences, I balance creativity with solid technical foundations built through my agency experience.
           </Paragraph>
         </div>
         <Echoes />
       </div>
-        <div className="flex flex-col pr-10">
+        <div className="flex flex-col lg:pr-10">
             <div className="flex justify-end">
-                <Image src="/PProfilClearBg.png" alt="Me" className={`rounded-lg w-[140px] h-[140px] object-cover ${showImage ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`} width={156} height={156} />
+                <Image src="/PProfilClearBg.png" alt="Me" className={`rounded-lg w-full lg:w-[140px] lg:h-[140px] object-cover ${showImage ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`} width={156} height={156} />
             </div>
-            <div className="overflow-hidden mt-10 mb-5 min-h-4">
+            <div className="overflow-hidden mt-4 lg:mt-10 mb-5 min-h-4">
               <h3 className={`uppercase text-[10px] font-bold text-white transition-transform duration-500 ${showTitle ? 'translate-y-0' : '-translate-y-6'}`}>My background</h3>
             </div>
-            <div className="flex flex-col gap-6 text-sm mb-14 text-gray-300">
+            <div className="flex flex-col gap-6 text-sm mb-14 text-white">
                 <Paragraph starttime={0.1}>
                   Growing up in Bayeux, a symbol of France&apos;s resilience during WWII, my home was a vibrant mix of creativity and analytical thinking, shaped by my father&apos;s career as an IT Specialist and my mother&apos;s work as a shopkeeper. This unique environment profoundly influenced my outlook.
                 </Paragraph>

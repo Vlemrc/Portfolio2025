@@ -4,6 +4,14 @@ import { useEffect, useState } from "react";
 export default function Echoes() {
     const [visible, setVisible] = useState(false);
     const [showTitle, setShowTitle] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+  
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         const timer1 = setTimeout(() => setShowTitle(true), 300);
@@ -32,7 +40,7 @@ export default function Echoes() {
                     transition: 'opacity 0.6s cubic-bezier(0.4,0,0.2,1)'
                 }}
                 src="https://open.spotify.com/embed/playlist/1uowCt1nschyYJbujear78?utm_source=generator"
-                width="70%"
+                width={isMobile ? "100%" : "70%"}
                 height="200"
                 frameBorder="0"
                 allowFullScreen
