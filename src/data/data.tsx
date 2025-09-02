@@ -59,7 +59,7 @@ export const data: ProjectType[] = [
             "Webflow", "JS", "GSAP"
         ],
         year: 2024,
-        link: "https//www.bimota.fr",
+        link: "https://www.bimota.fr",
         color: "rgb(227 6 19)",
         bgcolor: "rgb(238 238 238)",
         bordercolor: "rgba(227 6 19, 0.5)",
