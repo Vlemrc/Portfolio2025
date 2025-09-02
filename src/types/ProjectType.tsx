@@ -10,6 +10,7 @@ export interface ProjectType {
   bgcolor: string
   bordercolor: string
   type: string
+  slug: string
 }
 
 export interface ProjectStore {
