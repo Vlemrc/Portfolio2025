@@ -66,7 +66,7 @@ function FloatingDivs({ items }: FloatingDivsProps) {
 
 
   const handleVisible = (item: ProjectType) => {
-    router.replace(`/projects/${item.id}`)
+    router.replace(`/projects/${item.slug}`)
     setActiveProject(item);
   }
 
