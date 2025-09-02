@@ -1,14 +1,20 @@
+// Background.tsx
 "use client"
+
+import { useEffect } from "react"
 import useProjectStore from "@/stores/useProjectStore"
+import { usePathname } from "next/navigation"
 
 export default function Background() {
-    const { activeProject } = useProjectStore()
+  const { activeProject } = useProjectStore()
+  const pathname = usePathname()
 
-  return (
-    <div className={`absolute inset-0 z-[-1] h-full w-full ${activeProject ? "" : "bg-bgPrimary"} transition-colors duration-300`} 
-    style={{ 
-          backgroundColor: activeProject ? activeProject.bgcolor : undefined,
-        }}> 
-    </div>
-  );
+  useEffect(() => {
+    const color = activeProject?.bgcolor ?? "#0E0C17"
+    document.body.style.backgroundColor = color
+
+    document.body.style.transition = "background-color 300ms ease"
+  }, [activeProject, pathname])
+
+  return null
 }

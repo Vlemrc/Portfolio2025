@@ -102,7 +102,7 @@ export default function Logo({ color }: LogoProps) {
     <Link
       className={`
         top-4 left-4
-        fixed z-10 lg:top-6 lg:left-6 flex items-center justify-center w-[200px] cursor-pointer ${color ? "opacity-70" : "opacity-100"} hover:opacity-100 transition-opacity duration-300 ease-in-out`}
+        fixed z-20 lg:top-6 lg:left-6 flex items-center justify-center w-[200px] cursor-pointer ${color ? "opacity-70" : "opacity-100"} hover:opacity-100 transition-opacity duration-300 ease-in-out`}
       style={{ perspective: "1000px" }}
       href="/"
       onClick={handleHomeClick}

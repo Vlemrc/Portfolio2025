@@ -24,14 +24,14 @@ export default function Sidebar() {
   }, []);
 
   useEffect(() => {
-    let newTranslateY = -8
+    let newTranslateY = isMobile ? 8 : -8
 
     if (pathname === "/about") {
-      newTranslateY = 31
+      newTranslateY = isMobile ? 52 : 31
     } else if (pathname === "/path") {
-      newTranslateY = 77
+      newTranslateY = isMobile ? 96 : 77
     } else if (pathname === "/contact") {
-      newTranslateY = 122
+      newTranslateY = isMobile ? 140 : 122
     }
 
     setTranslateY(newTranslateY)
@@ -57,51 +57,54 @@ export default function Sidebar() {
         }}
       >
         <Logo />
-        <div className="lg:hidden fixed inset-0 border-b border-white w-full h-[90px] backdrop-blur-md bg-[rgba(14,12,23,0.55)]"
+        <div className="lg:hidden fixed inset-0 border-b border-white w-full h-[90px] backdrop-blur-md"
             style={{ 
-            borderColor: activeProject ? activeProject.bordercolor : 'rgba(83,74,145,0.5)'
-          }}
+              backgroundColor: activeProject ? activeProject.bgcolor : "#0E0C17",
+              borderColor: activeProject ? activeProject.bordercolor : 'rgba(83,74,145,0.5)'
+            }}
         >
           <BurgerIcon burgerOpen={burgerOpen} onToggle={() => setBurgerOpen(!burgerOpen)} />
         </div>
         {(!isMobile || burgerOpen) && (
-          <div className="flex flex-col justify-between lg:h-full">
-            <nav className="pt-[200px] flex flex-row justify-between">
+          <div className="absolute top-[90px] lg:top-0 lg:relative left-0 flex flex-col justify-between h-[calc(100vh-90px)] lg:h-full z-10 lg:translate-x-0 pl-8 lg:px-0 w-full lg:w-auto"
+            style={{ backgroundColor: activeProject ? activeProject?.color : "#0E0C17" }}
+          >
+            <nav className="pt-10 lg:pt-[200px] flex flex-row justify-between">
               <ul className="flex flex-col gap-5 text-white w-full">
-                <li className="w-full">
+                <li className="w-full" style={{transform: pathname === "/" && isMobile ? "translateX(20px)" : "none" }}>
                   <Link
                     onClick={handleClickNav}
-                    style={{ color: activeProject?.color }}
+                    style={{ color: activeProject?.color}}
                     className="transition-colors duration-300"
                     href="/"
                   >
                     Projects
                   </Link>
                 </li>
-                <li className="w-full">
+                <li className="w-full" style={{transform: pathname === "/about" && isMobile ? "translateX(20px)" : "none" }}>
                   <Link
                     onClick={handleClickNav}
-                    style={{ color: activeProject?.color }}
+                    style={{ color: activeProject?.color}}
                     className="transition-colors duration-300"
                     href="/about"
                   >
                     About Me
                   </Link>
                 </li>
-                <li className="w-full">
+                <li className="w-full" style={{transform: pathname === "/path" && isMobile ? "translateX(20px)" : "none" }}>
                   <Link
                     onClick={handleClickNav}
-                    style={{ color: activeProject?.color }}
+                    style={{ color: activeProject?.color}}
                     className="transition-colors duration-300"
                     href="/path"
                   >
                     Path
                   </Link>
                 </li>
-                <li className="w-full">
+                <li className="w-full" style={{transform: pathname === "/contact" && isMobile ? "translateX(20px)" : "none" }}>
                   <Link
                     onClick={handleClickNav}
-                    style={{ color: activeProject?.color }}
+                    style={{ color: activeProject?.color}}
                     className="transition-colors duration-300"
                     href="/contact"
                   >
@@ -111,11 +114,11 @@ export default function Sidebar() {
               </ul>
               <div
                 id="active-nav"
-                className="h-[43px] w-[1px] bg-white transition-transform transition-colors duration-300"
+                className="absolute lg:relative h-2 w-2 rounded-full lg:rounded-none lg:h-[43px] lg:w-[1px] bg-white transition-transform transition-colors duration-300"
                 style={{ transform: `translateY(${translateY}px)`, backgroundColor: activeProject?.color }}
               ></div>
             </nav>
-            <div className="flex flex-col gap-8 pb-10">
+            <div className="flex flex-col gap-8 pb-8 lg:pb-10">
               <Socials />
               <p
                 className="text-white uppercase text-[10px] font-normal transition-colors duration-300"
@@ -128,7 +131,7 @@ export default function Sidebar() {
         )}
       </aside>
       {(!isMobile || burgerOpen) && (
-        <p className="text-right text-white uppercase text-[10px] font-normal absolute bottom-10 right-10 transition-colors duration-300" style={{ color: activeProject?.color }}>
+        <p className="z-30 text-right text-white uppercase text-[10px] font-normal absolute bottom-8 lg:bottom-10 right-8 lg:right-10 transition-colors duration-300" style={{ color: activeProject?.color }}>
           Built with claws and passion <br /> by Victor Lemercier
         </p>
       )}

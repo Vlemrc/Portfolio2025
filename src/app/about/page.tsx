@@ -21,7 +21,7 @@ export default function AboutPage() {
 
   return (
     <div className="w-full flex pt-[120px] flex-col h-full px-8
-    lg:w-3/4 lg:pl-20 lg:pt-[70px] lg:flex-row lg:z-0">
+    lg:w-3/4 lg:pl-20 lg:pt-[70px] lg:flex-row lg:z-0 lg:pr-0">
       <div className="text-white">
         <div className="font-arges flex flex-row lg:mb-12 mb-6">
           <AnimatedTitle text="511" className="lg:text-[200px]/[1.2] text-[140px]/[1] font-bold text-white" delay={100} />
@@ -33,11 +33,11 @@ export default function AboutPage() {
         </div>
         <Echoes />
       </div>
-        <div className="flex flex-col lg:pr-10">
+        <div className="flex flex-col lg:pr-10 pb-20 lg:pb-0">
             <div className="flex justify-end">
                 <Image src="/PProfilClearBg.png" alt="Me" className={`rounded-lg w-full lg:w-[140px] lg:h-[140px] object-cover ${showImage ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`} width={156} height={156} />
             </div>
-            <div className="overflow-hidden mt-4 lg:mt-10 mb-5 min-h-4">
+            <div className="overflow-hidden mt-10 mb-5 min-h-4">
               <h3 className={`uppercase text-[10px] font-bold text-white transition-transform duration-500 ${showTitle ? 'translate-y-0' : '-translate-y-6'}`}>My background</h3>
             </div>
             <div className="flex flex-col gap-6 text-sm mb-14 text-white">
