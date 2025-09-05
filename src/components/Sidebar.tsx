@@ -42,9 +42,8 @@ export default function Sidebar() {
       setActiveProject(null)
     }
     playClick()
-    if ( burgerOpen ) {
-      setBurgerOpen(!burgerOpen)
-    }
+    setBurgerOpen(!burgerOpen)
+    
   }
 
   return (
@@ -67,7 +66,7 @@ export default function Sidebar() {
         </div>
         {(!isMobile || burgerOpen) && (
           <div className="absolute top-[90px] lg:top-0 lg:relative left-0 flex flex-col justify-between h-[calc(100vh-90px)] lg:h-full z-10 lg:translate-x-0 pl-8 lg:px-0 w-full lg:w-auto"
-            style={{ backgroundColor: activeProject ? activeProject?.color : "#0E0C17" }}
+            style={isMobile ? { backgroundColor: activeProject ? activeProject?.bgcolor : "#0E0C17" } : undefined}
           >
             <nav className="pt-10 lg:pt-[200px] flex flex-row justify-between">
               <ul className="flex flex-col gap-5 text-white w-full">
