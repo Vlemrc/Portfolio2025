@@ -5,7 +5,7 @@ export interface ProjectType {
   image: string
   stack: string[]
   year: number
-  link: string
+  link?: string
   color: string
   bgcolor: string
   bordercolor: string

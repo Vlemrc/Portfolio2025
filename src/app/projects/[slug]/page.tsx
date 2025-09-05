@@ -139,7 +139,7 @@ export default function ProjetPage() {
               {displayProject && (
                 <motion.p
                   style={{ color: activeProject?.color }}
-                  className="w-2/3 pt-6 font-light text-sm"
+                  className="w-full pt-6 font-light text-sm"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: 2.1, ease: "easeInOut" }}
@@ -210,7 +210,7 @@ export default function ProjetPage() {
       >
         <AnimatedSpan color={activeProject?.color} isHovered={isButtonHovered} />
         <p style={{ color: activeProject?.color }} className="uppercase text-xs font-bold text-right pl-5">
-          voir la vidéo <br /> de présentation <br /> du projet
+          watch the project <br /> presentation <br /> video
         </p>
       </button>
       <ArrowCross
