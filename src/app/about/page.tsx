@@ -40,7 +40,7 @@ export default function AboutPage() {
             <div className="overflow-hidden mt-10 mb-5 min-h-4">
               <h3 className={`uppercase text-[10px] font-bold text-white transition-transform duration-500 ${showTitle ? 'translate-y-0' : '-translate-y-6'}`}>My background</h3>
             </div>
-            <div className="flex flex-col gap-6 text-sm mb-14 text-white">
+            <div className="flex flex-col gap-6 text-sm mb-14 text-gray-300">
                 <Paragraph starttime={0.1}>
                   Growing up in Bayeux, a symbol of France&apos;s resilience during WWII, my home was a vibrant mix of creativity and analytical thinking, shaped by my father&apos;s career as an IT Specialist and my mother&apos;s work as a shopkeeper. This unique environment profoundly influenced my outlook.
                 </Paragraph>
