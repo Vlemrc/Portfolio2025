@@ -113,7 +113,7 @@ export default function MobileProjects() {
         Revenir
       </button>
 
-      <div ref={containerRef} className="relative w-full overflow-hidden cursor-grab active:cursor-grabbing">
+      <div ref={containerRef} className="relative w-full cursor-grab active:cursor-grabbing">
         {/* <button
           onClick={prevProject}
           className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-500 ${
@@ -132,7 +132,7 @@ export default function MobileProjects() {
 
         <div className="flex items-center justify-center h-full gap-0 w-full transition-all duration-700 ease-in-out">
           <div
-            className={`h-full overflow-hidden transition-all duration-700 ease-in-out ${
+            className={`h-full transition-all duration-700 ease-in-out ${
               isExpanded ? "opacity-0 w-0" : "opacity-50 w-5"
             }`}
           >
