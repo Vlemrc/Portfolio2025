@@ -20,6 +20,38 @@ export const data: ProjectType[] = [
     },
     {
         id: 2,
+        title: "Neuronote",
+        description: "A friend made Neuronote, an AI-powered study assistant to help students prepare for exams more efficiently. I crafted the whole user experience and interface for his app.",
+        image: "/images/neuronote.png",
+        stack: [
+            "Figma"
+        ],
+        year: 2025,
+        link: "https://neuronote.app/",
+        color: "#E83371",
+        bgcolor: "#F4F8FE",
+        bordercolor: "rgba(255 195 0, 0.5)",
+        type: "Neuronote",
+        slug: "neuronote"
+    },
+    {
+        id: 5,
+        title: "Notes AI",
+        description: "I made this Apple Notes clone with AI features for my Master's Degree project. I made a speech to present my project and a little video to introduce this new \"learning mode\". Ahead of Apple Intelligence.",
+        image: "/images/applenotes.jpg",
+        stack: [
+            "Next", "TailwindCSS", "GSAP", "Motion", "PostgreSQL"
+        ],
+        year: 2025,
+        color: "rgb(255 195 0)",
+        bgcolor: "rgb(40 40 40)",
+        bordercolor: "rgba(255 195 0, 0.5)",
+        type: "Master's Degree project",
+        slug: "notes-ai",
+        video: "/videos/NotesV3JET.mp4"
+    },
+    {
+        id: 6,
         title: "Quiz BNP",
         description: "A quiz to test your knowledge about your electricity consumptions. 4 days to create this quiz from scratch with Wordpress and ACF.",
         image: "/images/quiz-habitat.jpg",
@@ -33,21 +65,6 @@ export const data: ProjectType[] = [
         bordercolor: "rgba(42 128 84, 0.5)",
         type: "BNP Paribas",
         slug: "quiz-bnp"
-    },
-    {
-        id: 3,
-        title: "EightyTwo",
-        description: "Promotional website for Eighty Two. I aim to create a complete wordpress site, with CPTUI to register wines and events to train with Wordpress. A club for wine enthusiasts.",
-        image: "/images/eightytwo.png",
-        stack: [
-            "Wordpress", "PHP", "JS", "GSAP"
-        ],
-        year: 2025,
-        color: "rgb(255 255 255)",
-        bgcolor: "rgb(100 6 35)",
-        bordercolor: "rgba(255 255 255, 0.5)",
-        type: "Personal project",
-        slug: "eightytwo"
     },
     {
         id: 4,
@@ -66,34 +83,18 @@ export const data: ProjectType[] = [
         slug: "bimota"
     },
     {
-        id: 5,
-        title: "Notes AI",
-        description: "I made this Apple Notes clone with AI features for my Master's Degree project. I made a speech to present my project and a little video to introduce this new \"learning mode\". Ahead of Apple Intelligence.",
-        image: "/images/applenotes.jpg",
+        id: 3,
+        title: "EightyTwo",
+        description: "Promotional website for Eighty Two. I aim to create a complete wordpress site, with CPTUI to register wines and events to train with Wordpress. A club for wine enthusiasts.",
+        image: "/images/eightytwo.png",
         stack: [
-            "Next", "TailwindCSS", "GSAP", "Motion", "PostgreSQL"
+            "Wordpress", "PHP", "JS", "GSAP"
         ],
         year: 2025,
-        color: "rgb(255 195 0)",
-        bgcolor: "rgb(40 40 40)",
-        bordercolor: "rgba(255 195 0, 0.5)",
-        type: "Master's Degree project",
-        slug: "notes-ai"
+        color: "rgb(255 255 255)",
+        bgcolor: "rgb(100 6 35)",
+        bordercolor: "rgba(255 255 255, 0.5)",
+        type: "Personal project",
+        slug: "eightytwo"
     },
-    {
-        id: 6,
-        title: "Neuronote",
-        description: "A friend made Neuronote, an AI-powered study assistant that transforms notes into flashcards, quizzes, and revision sheets with one click. It’s designed to help students prepare for exams more efficiently.",
-        image: "/images/neuronote.png",
-        stack: [
-            "Figma"
-        ],
-        year: 2025,
-        link: "https://neuronote.app/",
-        color: "#E83371",
-        bgcolor: "#F4F8FE",
-        bordercolor: "rgba(255 195 0, 0.5)",
-        type: "Neuronote",
-        slug: "neuronote"
-    }
 ]

@@ -4,7 +4,6 @@ import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import useProjectStore from "@/stores/useProjectStore"
 import Link from "next/link"
-import { div } from "framer-motion/client"
 
 export default function MobileProjects() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -13,6 +12,7 @@ export default function MobileProjects() {
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
   const { activeProject, setActiveProject } = useProjectStore();
+  const [videoActive, setVideoActive] = useState(false)
 
   const nextProject = () => {
     setCurrentIndex((prev) => (prev + 1) % data.length)
@@ -34,6 +34,7 @@ export default function MobileProjects() {
   const handleBackClick = () => {
     setIsExpanded(false)
     setActiveProject(null)
+    setVideoActive(false)
   }
 
   const getPrevIndex = () => (currentIndex - 1 + data.length) % data.length
@@ -132,7 +133,7 @@ export default function MobileProjects() {
         <div className="flex items-center justify-center h-full gap-0 w-full transition-all duration-700 ease-in-out">
           <div
             className={`w-5 h-full overflow-hidden transition-all duration-700 ease-in-out ${
-              isExpanded ? "opacity-0 w-0 scale-0" : "opacity-50 w-5 scale-100"
+              isExpanded ? "opacity-0" : "opacity-50 w-5"
             }`}
           >
             <Image
@@ -174,18 +175,30 @@ export default function MobileProjects() {
                     </div>
                 )}
               <div className={`${isExpanded ? "px-12" : "px-0"} relative w-full transition-all duration-700 ease-in-out`}>
-                <Image
-                  src={data[currentIndex].image || "/placeholder.svg"}
-                  alt={data[currentIndex].title}
-                  width={500}
-                  height={200}
-                  className={`rounded-lg object-cover transition-all duration-700 ease-in-out mb-4 ${
-                    isExpanded ? "w-full h-[300px]" : "w-full mx-0 h-[200px]"
-                  }`}
-                />
+                {videoActive ? (
+                  <video 
+                    src={data[currentIndex].video || "/placeholder.mp4"}
+                    className={`w-full rounded-lg object-cover transition-all duration-700 ease-in-out mb-4 ${
+                      isExpanded ? "h-[300px]" : "h-[200px]"
+                    }`}
+                    controls
+                    autoPlay
+                    muted
+                  />
+                ) : (
+                  <Image
+                    src={data[currentIndex].image || "/placeholder.svg"}
+                    alt={data[currentIndex].title}
+                    width={500}
+                    height={200}
+                    className={`w-full rounded-lg object-cover transition-all duration-700 ease-in-out mb-4 ${
+                      isExpanded ? "h-[300px] w-full" : "h-[200px] w-full"
+                    }`}
+                  />
+                )}
                 <h2
                   style={{ color: data[currentIndex].color }}
-                  className={`font-arges uppercase font-bold text-white transition-all duration-700 ease-in-out text-[80px] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[70%] text-2xl z-20 w-4/5 text-center `}
+                  className={`font-arges uppercase font-bold text-white transition-all duration-700 ease-in-out text-[80px] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[70%] text-2xl z-20 w-4/5 text-center ${videoActive ? "opacity-0" : "opacity-100"}`}
                 >
                   {data[currentIndex].title}
                 </h2>
@@ -210,16 +223,23 @@ export default function MobileProjects() {
               <p
                 style={{ color: data[currentIndex].color }}
                 className={`text-center transition-all duration-700 ease-in-out px-12 text-xs ${
-                  isExpanded ? "opacity-100" : "opacity-0 translate-y-4 max-h-0 overflow-hidden"
+                  isExpanded ? "block" : "hidden"
                 }`}
               >
                 {data[currentIndex].description || "Description du projet à venir..."}
               </p>
               <button 
                 style={{ color: data[currentIndex].color }}
-                className={`uppercase text-xs font-bold text-right mt-8 ${isExpanded ? "" : "hidden"}`}
+                onClick={() => setVideoActive(!videoActive)}
+                className={`uppercase text-xs font-bold text-right mt-8 ${isExpanded ? "block" : "hidden"}`}
               >
-                Watch the project <br /> presentation video
+                {!videoActive ? (
+                  <>
+                    Watch the project <br /> presentation video
+                  </>
+                ) : (
+                  "Retour"
+                )}
               </button>
             </div>
           </button>
@@ -234,7 +254,7 @@ export default function MobileProjects() {
               alt={data[getNextIndex()].title}
               width={500}
               height={200}
-              className="w-full h-[200px] rounded-lg object-cover transition-transform duration-700"
+              className="w-full h-[200px] rounded-l-lg object-cover transition-transform duration-700"
             />
           </div>
         </div>

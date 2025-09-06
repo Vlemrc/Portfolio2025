@@ -15,6 +15,7 @@ export default function ProjetPage() {
   const [showButton2, setShowButton2] = useState(false)
   const [showVisit, setShowVisit] = useState(false)
   const [animationKey, setAnimationKey] = useState(0)
+  const [activeVideo, setActiveVideo] = useState(false)
 
   useEffect(() => {
     if (displayProject) {
@@ -47,6 +48,11 @@ export default function ProjetPage() {
     setAnimationKey((prev) => prev + 1)
   }
 
+  const onToggle = () => {
+    setDisplayProject(!displayProject)
+    setActiveVideo(false)
+  }
+
   return (
     <div
       className={`flex-1 pl-20 transition-colors duration-300 pr-10 pt-20 flex flex-row items-center justify-between`}
@@ -64,13 +70,23 @@ export default function ProjetPage() {
           }}
           className={`${displayProject ? "w-full max-h-[400px]" : "max-h-[500px]"} w-[90%]  overflow-hidden`}
         >
-          <Image
-            src={activeProject?.image ?? "/placeholder.png"}
-            alt={activeProject?.title ?? "Project image"}
-            width={500}
-            height={300}
-            className={`w-full h-full object-cover ${displayProject ? "max-h-[400px]" : "max-h-[500px]"}`}
-          />
+          {activeVideo ? (
+            <video 
+              src={activeProject?.video || "/placeholder.mp4"}
+              className={`w-full h-full object-cover h-[300px] ${displayProject ? "max-h-[400px]" : "max-h-[500px]"}`}
+              controls
+              autoPlay
+              muted
+            />
+          ) : (
+            <Image
+              src={activeProject?.image ?? "/placeholder.png"}
+              alt={activeProject?.title ?? "Project image"}
+              width={500}
+              height={300}
+              className={`w-full h-full object-cover ${displayProject ? "max-h-[400px]" : "max-h-[500px]"}`}
+            />
+          )}
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, x: -80, y: "25%" }}
@@ -80,8 +96,8 @@ export default function ProjetPage() {
             x: { duration: 0.2, delay: 1.2, ease: "easeOut" },
             y: { duration: 0.2, delay: 1.2, ease: "easeOut" }
           }}
-          style={{ color: activeProject?.color }}
-          className={`font-arges uppercase text-[200px] absolute left-0 transition-transform duration-700 ease-in-out ${displayProject ? "-translate-y-1/2" : "translate-y-1/4"}`}
+          style={{ color: activeProject?.color, opacity: activeVideo ? "0" : "1" }}
+          className={`font-arges uppercase text-[200px] absolute left-0 transition-all duration-700 ease-in-out ${displayProject ? "-translate-y-1/2" : "translate-y-1/4"}`}
         >
           {activeProject?.title}
         </motion.h1>
@@ -207,17 +223,26 @@ export default function ProjetPage() {
         className={`transition-all duration-700 ease-in-out h-fit transform ${displayProject && showButton1 ? "flex" : "hidden"} ${showButton2 ? "opacity-100 -translate-y-20" : "opacity-0 -translate-y-[100px]"}`}
         onMouseEnter={() => setIsButtonHovered(true)}
         onMouseLeave={() => setIsButtonHovered(false)}
+        onClick={() => setActiveVideo(!activeVideo)}
       >
         <AnimatedSpan color={activeProject?.color} isHovered={isButtonHovered} />
         <p style={{ color: activeProject?.color }} className="uppercase text-xs font-bold text-right pl-5">
-          watch the project <br /> presentation <br /> video
+          {!activeVideo ? (
+            <>
+              Watch the project <br /> presentation <br /> video
+            </>
+          ) : (
+            <>
+              Back <br /> to project <br /> overview
+            </>
+          )}
         </p>
       </button>
       <ArrowCross
         color={activeProject?.color}
         size={24}
         isToggled={displayProject}
-        onToggle={setDisplayProject}
+        onToggle={onToggle}
         onQuit={onQuit}
         onResetAnimations={resetAnimationStates}
       />
