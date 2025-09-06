@@ -133,7 +133,7 @@ export default function Sidebar() {
         </p>
       )}
       {isMobile && burgerOpen && (
-        <div className="fixed top-[90px] left-0 w-full h-[calc(100vh-90px)] backdrop-blur-xl z-40 flex flex-col justify-between">
+        <div className="fixed top-[90px] left-0 w-full h-[calc(100dvh-90px)] backdrop-blur-xl z-40 flex flex-col justify-between">
           <nav className="pt-10 lg:pt-[200px] flex flex-row justify-between">
             <ul className="flex flex-col gap-5 pl-10 text-white w-full">
               <li className="w-full" style={{transform: pathname === "/" && isMobile ? "translateX(20px)" : "none" }}>
