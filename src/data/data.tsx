@@ -85,7 +85,7 @@ export const data: ProjectType[] = [
     {
         id: 3,
         title: "EightyTwo",
-        description: "Promotional website for Eighty Two. I aim to create a complete wordpress site, with CPTUI to register wines and events to train with Wordpress. A club for wine enthusiasts.",
+        description: "Promotional website for Eighty Two. I aim to create a complete wordpress site to train, with CPTUI to register wines and events. A club for wine enthusiasts.",
         image: "/images/eightytwo.png",
         stack: [
             "Wordpress", "PHP", "JS", "GSAP"

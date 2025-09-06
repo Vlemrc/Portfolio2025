@@ -11,6 +11,7 @@ export interface ProjectType {
   bordercolor: string
   type: string
   slug: string
+  video?: string
 }
 
 export interface ProjectStore {
