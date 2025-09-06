@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import useProjectStore from "@/stores/useProjectStore"
 import useNavClickSound from "@/lib/hooks/useNavClickSound"
+import { usePathname } from "next/navigation"
 interface LogoProps {
   color?: string | undefined
 }
@@ -10,6 +11,7 @@ interface LogoProps {
 export default function Logo({ color }: LogoProps) {
   const { activeProject, setActiveProject } = useProjectStore();
   const playClick = useNavClickSound()
+  const pathname = usePathname()
   const paths = [
     "M182.02,117h26.93l-27.32,273.95h2.34l56.58-273.95h26.93l-70.24,304.38h-37.85l22.63-304.38Z",
     "M278.02,117h27.32l-44.88,304.38h-27.32l44.88-304.38Z",
@@ -94,8 +96,10 @@ export default function Logo({ color }: LogoProps) {
   }
 
   const handleHomeClick = () => {
-    setActiveProject(null)
-    playClick()
+    if ( pathname !== "/" ) {
+      setActiveProject(null)
+      playClick()
+    }
   }
 
   return (

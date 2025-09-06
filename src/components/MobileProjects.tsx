@@ -11,7 +11,7 @@ export default function MobileProjects() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
-  const { activeProject, setActiveProject } = useProjectStore();
+  const { activeProject, setActiveProject } = useProjectStore()
   const [videoActive, setVideoActive] = useState(false)
 
   const nextProject = () => {
@@ -132,8 +132,8 @@ export default function MobileProjects() {
 
         <div className="flex items-center justify-center h-full gap-0 w-full transition-all duration-700 ease-in-out">
           <div
-            className={`w-5 h-full overflow-hidden transition-all duration-700 ease-in-out ${
-              isExpanded ? "opacity-0" : "opacity-50 w-5"
+            className={`h-full overflow-hidden transition-all duration-700 ease-in-out ${
+              isExpanded ? "opacity-0 w-0" : "opacity-50 w-5"
             }`}
           >
             <Image
@@ -141,46 +141,58 @@ export default function MobileProjects() {
               alt={data[getPrevIndex()].title}
               width={500}
               height={200}
-              className="w-full h-[200px] rounded-r-lg object-cover transition-transform duration-700"
+              className="w-full h-[200px] rounded-r-lg object-cover transition-all duration-700 ease-in-out"
             />
           </div>
 
-          <button
+          <section
             onClick={handleProjectClick}
-            className={`transition-all duration-700 ease-in-out h-full ${
-              isExpanded ? "flex-none w-full max-w-none mx-0" : "flex-1 max-w-md mx-4"
-            }`}
+            className="transition-all duration-700 ease-in-out h-full"
+            style={{
+              flexBasis: isExpanded ? "100%" : "28rem",
+              margin: isExpanded ? "0" : "0 1rem",
+              flexGrow: isExpanded ? 1 : 0,
+            }}
+
           >
+
             <div className="flex flex-col items-center">
-                {activeProject && activeProject.link && (
-                    <div className="w-full flex justify-end mr-[100px] mb-2">
-                        <Link
-                            target="_blank"
-                            href={activeProject.link}
-                            className={`flex flex-row items-center gap-5 ease-in-out`}
-                        >
-                            <div
-                            style={{ backgroundColor: activeProject?.color }}
-                            className={`h-0.5 w-12 transition-transform duration-500 origin-left transform`}
-                            ></div>
-                            <div className="overflow-hidden h-fit w-fit">
-                            <p
-                                style={{ color: activeProject?.color }}
-                                className={`uppercase text-xs font-bold transition-transform duration-500`}
-                            >
-                                Visit
-                            </p>
-                            </div>
-                        </Link>
+              {activeProject && activeProject.link && (
+                <div className="w-full flex justify-end mr-[100px] mb-2">
+                  <Link
+                    target="_blank"
+                    href={activeProject.link}
+                    className={`flex flex-row items-center gap-5 ease-in-out`}
+                  >
+                    <div
+                      style={{ backgroundColor: activeProject?.color }}
+                      className={`h-0.5 w-12 transition-transform duration-500 origin-left transform`}
+                    ></div>
+                    <div className="overflow-hidden h-fit w-fit">
+                      <p
+                        style={{ color: activeProject?.color }}
+                        className={`uppercase text-xs font-bold transition-transform duration-500`}
+                      >
+                        Visit
+                      </p>
                     </div>
-                )}
-              <div className={`${isExpanded ? "px-12" : "px-0"} relative w-full transition-all duration-700 ease-in-out`}>
+                  </Link>
+                </div>
+              )}
+              <div
+                className="relative w-full transition-all duration-700 ease-in-out"
+                style={{
+                  paddingLeft: isExpanded ? "3rem" : "0",
+                  paddingRight: isExpanded ? "3rem" : "0",
+                }}
+              >
                 {videoActive ? (
-                  <video 
+                  <video
                     src={data[currentIndex].video || "/placeholder.mp4"}
-                    className={`w-full rounded-lg object-cover transition-all duration-700 ease-in-out mb-4 ${
-                      isExpanded ? "h-[300px]" : "h-[200px]"
-                    }`}
+                    className="w-full rounded-lg object-cover mb-4 transition-all duration-700 ease-in-out"
+                    style={{
+                      height: isExpanded ? "300px" : "200px",
+                    }}
                     controls
                     autoPlay
                     muted
@@ -191,9 +203,10 @@ export default function MobileProjects() {
                     alt={data[currentIndex].title}
                     width={500}
                     height={200}
-                    className={`w-full rounded-lg object-cover transition-all duration-700 ease-in-out mb-4 ${
-                      isExpanded ? "h-[300px] w-full" : "h-[200px] w-full"
-                    }`}
+                    className="w-full rounded-lg object-cover mb-4 transition-all duration-700 ease-in-out"
+                    style={{
+                      height: isExpanded ? "300px" : "200px",
+                    }}
                   />
                 )}
                 <h2
@@ -204,22 +217,28 @@ export default function MobileProjects() {
                 </h2>
               </div>
 
-                <div className={`${isExpanded ? "" : "hidden"} flex flex-row justify-between w-full mb-8`}>
-                    <div style={{ color: activeProject?.color }} className={`flex flex-col text-left pl-12 uppercase text-xs ${isExpanded ? "opacity-100" : "opacity-0"}`}>
-                        <p>Year</p>
-                        <p>For</p>
-                        <p>Stack</p>
-                    </div>
-                    <div style={{ color: activeProject?.color }} className={`flex flex-col text-right pr-12 uppercase text-xs ${isExpanded ? "opacity-100" : "opacity-0"}`}>
-                        <p>{activeProject?.year}</p>
-                        <p>{activeProject?.type}</p>
-                        <ul className="flex flex-row flex-wrap gap-x-1 gap-y-0 justify-end">
-                            {activeProject?.stack.map((tech, index) => (
-                            <li key={index}>{tech}</li>
-                            ))}
-                        </ul>
-                    </div>
+              <div className={`${isExpanded ? "" : "hidden"} flex flex-row justify-between w-full mb-8`}>
+                <div
+                  style={{ color: activeProject?.color }}
+                  className={`flex flex-col text-left pl-12 uppercase text-xs ${isExpanded ? "opacity-100" : "opacity-0"}`}
+                >
+                  <p>Year</p>
+                  <p>For</p>
+                  <p>Stack</p>
                 </div>
+                <div
+                  style={{ color: activeProject?.color }}
+                  className={`flex flex-col text-right pr-12 uppercase text-xs ${isExpanded ? "opacity-100" : "opacity-0"}`}
+                >
+                  <p>{activeProject?.year}</p>
+                  <p>{activeProject?.type}</p>
+                  <ul className="flex flex-row flex-wrap gap-x-1 gap-y-0 justify-end">
+                    {activeProject?.stack.map((tech, index) => (
+                      <li key={index}>{tech}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
               <p
                 style={{ color: data[currentIndex].color }}
                 className={`text-center transition-all duration-700 ease-in-out px-12 text-xs ${
@@ -228,25 +247,27 @@ export default function MobileProjects() {
               >
                 {data[currentIndex].description || "Description du projet à venir..."}
               </p>
-              <button 
+              <button
                 style={{ color: data[currentIndex].color }}
                 onClick={() => setVideoActive(!videoActive)}
-                className={`uppercase text-xs font-bold text-right mt-8 ${isExpanded ? "block" : "hidden"}`}
+                className={`uppercase text-xs font-bold text-center mt-8 ${isExpanded ? "block" : "hidden"}`}
               >
                 {!videoActive ? (
                   <>
                     Watch the project <br /> presentation video
                   </>
                 ) : (
-                  "Retour"
+                  <>
+                    Back to project <br /> overview
+                  </>
                 )}
               </button>
             </div>
-          </button>
+          </section>
 
           <div
-            className={`w-5 h-full overflow-hidden transition-all duration-700 ease-in-out ${
-              isExpanded ? "opacity-0 w-0 scale-0" : "opacity-50 w-5 scale-100"
+            className={`h-full overflow-hidden transition-all duration-700 ease-in-out ${
+              isExpanded ? "opacity-0 w-0" : "opacity-50 w-5"
             }`}
           >
             <Image
@@ -254,7 +275,7 @@ export default function MobileProjects() {
               alt={data[getNextIndex()].title}
               width={500}
               height={200}
-              className="w-full h-[200px] rounded-l-lg object-cover transition-transform duration-700"
+              className="w-full h-[200px] rounded-l-lg object-cover transition-all duration-700 ease-in-out"
             />
           </div>
         </div>
@@ -276,6 +297,13 @@ export default function MobileProjects() {
           />
         ))}
       </div>
+      {(!activeProject) && (
+        <p
+          className="z-50 text-right text-white uppercase text-[10px] font-normal absolute bottom-8 lg:bottom-10 right-8 lg:right-10 transition-colors duration-300"
+        >
+          Built with claws and passion <br /> by Victor Lemercier
+        </p>
+      )}
     </div>
   )
 }
