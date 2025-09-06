@@ -76,20 +76,6 @@ export default function Paragraph ({ children, starttime = 0, className = "", st
       return children.map((child, index) => processChildren(child, wordIndex))
     }
 
-    if (children && typeof children === "object" && "props" in children) {
-      const element = children as any
-      // Pour les liens et autres éléments, on traite leur contenu
-      if (element.props && element.props.children) {
-        return {
-          ...element,
-          props: {
-            ...element.props,
-            children: processChildren(element.props.children, wordIndex),
-          },
-        }
-      }
-    }
-
     return children
   }
 
