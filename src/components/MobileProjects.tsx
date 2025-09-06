@@ -101,7 +101,7 @@ export default function MobileProjects() {
   }, [touchStart, touchEnd, isExpanded])
 
   return (
-    <div className="text-white p-8 pt-20 px-0 relative h-full w-full items-center justify-center flex flex-col">
+    <div className={`${isExpanded ? "pt-[120px]" : "pt-20"} text-white p-8 px-0 relative h-full w-full items-center justify-center flex flex-col`}>
       <button
         style={{ color: data[currentIndex].color }}
         onClick={handleBackClick}
@@ -114,22 +114,6 @@ export default function MobileProjects() {
       </button>
 
       <div ref={containerRef} className="relative w-full cursor-grab active:cursor-grabbing">
-        {/* <button
-          onClick={prevProject}
-          className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-500 ${
-            isExpanded ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
-          aria-label="Previous project"
-        ></button>
-
-        <button
-          onClick={nextProject}
-          className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-500 ${
-            isExpanded ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
-          aria-label="Next project"
-        ></button> */}
-
         <div className="flex items-center justify-center h-full gap-0 w-full transition-all duration-700 ease-in-out">
           <div
             className={`h-full transition-all duration-700 ease-in-out ${
@@ -162,7 +146,7 @@ export default function MobileProjects() {
                   <Link
                     target="_blank"
                     href={activeProject.link}
-                    className={`flex flex-row items-center gap-5 ease-in-out`}
+                    className={`flex flex-row items-center gap-5 ease-in-out pt-12`}
                   >
                     <div
                       style={{ backgroundColor: activeProject?.color }}
@@ -250,7 +234,7 @@ export default function MobileProjects() {
               <button
                 style={{ color: data[currentIndex].color }}
                 onClick={() => setVideoActive(!videoActive)}
-                className={`uppercase text-xs font-bold text-center mt-8 ${isExpanded ? "block" : "hidden"}`}
+                className={`uppercase text-xs font-bold text-center my-8 ${isExpanded ? "block" : "hidden"}`}
               >
                 {!videoActive ? (
                   <>
@@ -282,8 +266,8 @@ export default function MobileProjects() {
       </div>
 
       <div
-        className={`flex justify-center gap-2 mt-4 transition-all duration-500 ${
-          isExpanded ? "opacity-0 translate-y-4 pointer-events-none" : "opacity-100 translate-y-0"
+        className={`justify-center gap-2 mt-4 transition-all duration-500 ${
+          isExpanded ? "hidden" : "flex"
         }`}
       >
         {data.map((_, index) => (
