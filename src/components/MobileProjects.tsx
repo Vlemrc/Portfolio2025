@@ -164,7 +164,7 @@ export default function MobileProjects() {
                 </div>
               )}
               <div
-                className="relative w-full transition-all duration-700 ease-in-out"
+                className={`relative w-full transition-all duration-700 ease-in-out ${activeProject && isExpanded && !activeProject.link ? "mt-12" : "mt-0"}`}
                 style={{
                   paddingLeft: isExpanded ? "3rem" : "0",
                   paddingRight: isExpanded ? "3rem" : "0",

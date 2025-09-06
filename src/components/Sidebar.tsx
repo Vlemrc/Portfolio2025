@@ -48,10 +48,10 @@ export default function Sidebar() {
   return (
     <>
       <aside
-        className={`flex-shrink-0 absolute z-10 lg:relative w-full lg:w-1/4 lg:max-w-[300px] lg:min-w-[230px] h-[90px] lg:h-full border-r pl-10 transition-colors duration-300`}
+        className={`flex-shrink-0 absolute z-10 lg:relative w-full lg:w-1/4 lg:max-w-[300px] lg:min-w-[230px] h-[90px] lg:h-full pl-10 transition-colors duration-300`}
         style={{ 
           backgroundColor: activeProject ? activeProject.bgcolor : "#0E0C17",
-          borderColor: activeProject ? activeProject.bordercolor : 'rgba(83,74,145,0.5)'
+          borderRight: `1px solid ${activeProject ? activeProject.bordercolor : 'rgba(83,74,145,0.5)'}`
         }}
       >
         <Logo />

@@ -14,7 +14,7 @@ export const data: ProjectType[] = [
         year: 2024,
         color: "rgb(242 109 103)",
         bgcolor: "rgb(6 39 24)",
-        bordercolor: "rgba(242 109 103, 0.5)",
+        bordercolor: "rgba(242, 109, 103, 0.15)",
         type: "Personal project",
         slug: "lespetalesobscurs"
     },
@@ -30,7 +30,7 @@ export const data: ProjectType[] = [
         link: "https://neuronote.app/",
         color: "#E83371",
         bgcolor: "#F4F8FE",
-        bordercolor: "rgba(255 195 0, 0.5)",
+        bordercolor: "#E833711A",
         type: "Neuronote",
         slug: "neuronote"
     },
@@ -45,7 +45,7 @@ export const data: ProjectType[] = [
         year: 2025,
         color: "rgb(255 195 0)",
         bgcolor: "rgb(40 40 40)",
-        bordercolor: "rgba(255 195 0, 0.5)",
+        bordercolor: "rgba(255, 195, 0, 0.15)",
         type: "Master's Degree project",
         slug: "notes-ai",
         video: "/videos/NotesV3JET.mp4"
@@ -62,7 +62,7 @@ export const data: ProjectType[] = [
         link: "https://www.observatoirecetelem-quiz.com/habitat-eu-2024",
         color: "rgb(42 128 84)",
         bgcolor: "rgb(238 238 238)",
-        bordercolor: "rgba(42 128 84, 0.5)",
+        bordercolor: "rgba(42, 128, 84, 0.15)",
         type: "BNP Paribas",
         slug: "quiz-bnp"
     },
@@ -78,7 +78,7 @@ export const data: ProjectType[] = [
         link: "https://www.bimota.fr",
         color: "rgb(227 6 19)",
         bgcolor: "rgb(238 238 238)",
-        bordercolor: "rgba(227 6 19, 0.5)",
+        bordercolor: "rgba(227, 6, 21, 0.15)",
         type: "Bimota",
         slug: "bimota"
     },
@@ -93,7 +93,7 @@ export const data: ProjectType[] = [
         year: 2025,
         color: "rgb(255 255 255)",
         bgcolor: "rgb(100 6 35)",
-        bordercolor: "rgba(255 255 255, 0.5)",
+        bordercolor: "rgba(255, 255, 255, 0.15)",
         type: "Personal project",
         slug: "eightytwo"
     },
