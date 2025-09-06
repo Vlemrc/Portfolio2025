@@ -7,7 +7,7 @@ interface AnimatedTitleProps {
   delay?: number // délai entre chaque lettre en ms (défaut: 100ms)
 }
 
-export default function AnimatedTitle({ text, className = "", delay = 100 }: AnimatedTitleProps) {
+export default function AnimatedTitle({ text = "", className = "", delay = 100 }: AnimatedTitleProps) {
   const [visibleLetters, setVisibleLetters] = useState<boolean[]>([])
 
   useEffect(() => {

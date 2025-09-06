@@ -73,7 +73,7 @@ export default function Paragraph ({ children, starttime = 0, className = "", st
     }
 
     if (Array.isArray(children)) {
-      return children.map((child, index) => processChildren(child, wordIndex))
+      return children.map((child) => processChildren(child, wordIndex))
     }
 
     return children

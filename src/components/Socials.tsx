@@ -3,7 +3,7 @@ import useProjectStore from "@/stores/useProjectStore"
 import Link from "next/link";
 
 export default function Socials() {
-    const { activeProject, setActiveProject } = useProjectStore();
+    const { activeProject } = useProjectStore();
 
     return (
         <div className="flex gap-1 flex-col text-white uppercase text-xs font-light">

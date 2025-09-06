@@ -7,7 +7,6 @@ import { useEffect, useState } from "react"
 import useNavClickSound from "@/lib/hooks/useNavClickSound"
 import useProjectStore from "@/stores/useProjectStore"
 import BurgerIcon from "./BurgerIcon"
-import { div } from "framer-motion/client"
 
 export default function Sidebar() {
   const pathname = usePathname()
@@ -36,7 +35,7 @@ export default function Sidebar() {
     }
 
     setTranslateY(newTranslateY)
-  }, [pathname])
+  }, [pathname, isMobile])
 
   const handleClickNav = () => {
     if (activeProject) {
