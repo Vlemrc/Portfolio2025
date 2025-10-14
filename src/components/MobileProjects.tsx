@@ -31,11 +31,17 @@ export default function MobileProjects() {
     setActiveProject(data[currentIndex])
   }
 
-  const handleBackClick = () => {
+  const handleBackClick = (e: React.MouseEvent) => {
+    e.stopPropagation() // ⛔ Empêche le clic d’atteindre <section>
     setIsExpanded(false)
     setActiveProject(null)
     setVideoActive(false)
   }
+
+
+  useEffect(() => {
+    console.log("Changement détecté :", { activeProject, isExpanded })
+  }, [activeProject, isExpanded])
 
   const getPrevIndex = () => (currentIndex - 1 + data.length) % data.length
   const getNextIndex = () => (currentIndex + 1) % data.length
@@ -102,17 +108,6 @@ export default function MobileProjects() {
 
   return (
     <div className={`${isExpanded ? "pt-[120px]" : "pt-20"} text-white p-8 px-0 relative h-full w-full items-center justify-center flex flex-col`}>
-      <button
-        style={{ color: data[currentIndex].color }}
-        onClick={handleBackClick}
-        className={`fixed bottom-6 right-6 z-20 uppercase text-[10px] font-bold transition-all duration-500 ${
-          isExpanded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-full pointer-events-none"
-        }`}
-        aria-label="Back to projects"
-      >
-        Revenir
-      </button>
-
       <div ref={containerRef} className="relative w-full cursor-grab active:cursor-grabbing">
         <div className="flex items-center justify-center h-full gap-0 w-full transition-all duration-700 ease-in-out">
           <div
@@ -141,30 +136,44 @@ export default function MobileProjects() {
           >
 
             <div className="flex flex-col items-center">
-              {activeProject && activeProject.link && (
-                <div className="w-full flex justify-end mr-[100px] mb-2">
-                  <Link
-                    target="_blank"
-                    href={activeProject.link}
-                    className={`flex flex-row items-center gap-5 ease-in-out pt-12`}
+              {activeProject && isExpanded && (
+                <div className="w-full flex flex-row justify-between items-center mb-2 px-12">
+                  <button
+                    style={{ color: data[currentIndex].color }}
+                    onClick={handleBackClick}
+                    className={`uppercase text-xs font-bold transition-all duration-500 ${
+                      isExpanded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-full pointer-events-none"
+                    }`}
+                    aria-label="Back to projects"
                   >
-                    <div
-                      style={{ backgroundColor: activeProject?.color }}
-                      className={`h-0.5 w-12 transition-transform duration-500 origin-left transform`}
-                    ></div>
-                    <div className="overflow-hidden h-fit w-fit">
-                      <p
-                        style={{ color: activeProject?.color }}
-                        className={`uppercase text-xs font-bold transition-transform duration-500`}
+                    Back
+                  </button>
+                  {activeProject && activeProject.link && (
+                    <div>
+                      <Link
+                        target="_blank"
+                        href={activeProject.link}
+                        className={`flex flex-row items-center gap-5 ease-in-out`}
                       >
-                        Visit
-                      </p>
+                        <div
+                          style={{ backgroundColor: activeProject?.color }}
+                          className={`h-0.5 w-12 transition-transform duration-500 origin-left transform`}
+                        ></div>
+                        <div className="overflow-hidden h-fit w-fit">
+                          <p
+                            style={{ color: activeProject?.color }}
+                            className={`uppercase text-xs font-bold transition-transform duration-500`}
+                          >
+                            Visit
+                          </p>
+                        </div>
+                      </Link>
                     </div>
-                  </Link>
+                  )}
                 </div>
               )}
               <div
-                className={`relative w-full transition-all duration-700 ease-in-out ${activeProject && isExpanded && !activeProject.link ? "mt-12" : "mt-0"}`}
+                className={`relative w-full transition-all duration-700 ease-in-out`}
                 style={{
                   paddingLeft: isExpanded ? "3rem" : "0",
                   paddingRight: isExpanded ? "3rem" : "0",
