@@ -16,7 +16,8 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(6 39 24)",
         bordercolor: "rgba(242, 109, 103, 0.15)",
         type: "Personal project",
-        slug: "lespetalesobscurs"
+        slug: "lespetalesobscurs",
+        github: "https://github.com/Vlemrc/LesPetalesObscurs"
     },
     {
         id: 2,
@@ -48,7 +49,8 @@ export const data: ProjectType[] = [
         bordercolor: "rgba(255, 195, 0, 0.15)",
         type: "Master's Degree project",
         slug: "notes-ai",
-        video: "/videos/NotesV3JET.mp4"
+        video: "/videos/NotesV3JET.mp4",
+        github: "https://github.com/Vlemrc/applenotes-ai"
     },
     {
         id: 6,
@@ -95,6 +97,7 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(100 6 35)",
         bordercolor: "rgba(255, 255, 255, 0.15)",
         type: "Personal project",
-        slug: "eightytwo"
+        slug: "eightytwo",
+        github: "https://github.com/Vlemrc/Ei8htytw2"
     },
 ]

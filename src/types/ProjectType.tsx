@@ -12,6 +12,7 @@ export interface ProjectType {
   type: string
   slug: string
   video?: string
+  github?: string
 }
 
 export interface ProjectStore {

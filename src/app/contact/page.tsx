@@ -10,6 +10,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel"
 import Autoplay from "@/components/ui/carousel-autoplay";
+import type { EmblaCarouselType } from "embla-carousel";
 
 export default function ContactPage() {
 
@@ -28,14 +29,14 @@ export default function ContactPage() {
 
   // Pour les bullets
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [emblaApi, setEmblaApi] = useState(null);
+  const [emblaApi, setEmblaApi] = useState<EmblaCarouselType | null>(null);
 
   React.useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
     emblaApi.on("select", onSelect);
     onSelect();
-    return () => emblaApi.off("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
   }, [emblaApi]);
 
   return (
@@ -66,15 +67,15 @@ export default function ContactPage() {
           </Paragraph>
         </div>
       </div>
-      <div id="slider" className="lg:w-1/3 w-full lg:pr-10 h-fit rounded-lg overflow-hidden relative mb-10 lg:mb-0">
+      <div id="slider" className="lg:w-1/3 w-full lg:mr-10 h-fit rounded-lg lg:overflow-hidden relative mb-10 lg:mb-0 pb-8 lg:pb-0">
         <Carousel
           plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
-          setApi={setEmblaApi}
+          setApi={api => setEmblaApi(api ?? null)}
         >
           <CarouselContent>
             {myImgs.map((src, idx) => (
               <CarouselItem key={idx}>
-                <div className="w-full h-[360px] relative">
+                <div className="w-full min-h-[500px] lg:min-h-[400px] relative">
                   <Image
                     src={src}
                     alt={`carousel-${idx}`}
@@ -87,7 +88,7 @@ export default function ContactPage() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="absolute bottom-14 lg:bottom-2 left-1/2 transform -translate-x-1/2 flex justify-center gap-1">
+          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex justify-center gap-1">
             {myImgs.map((_, idx) => (
               <button
                 key={idx}
