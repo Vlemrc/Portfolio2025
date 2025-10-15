@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel"
 import Autoplay from "@/components/ui/carousel-autoplay";
 import type { EmblaCarouselType } from "embla-carousel";
+import { motion } from "framer-motion"
 
 export default function ContactPage() {
 
@@ -67,7 +68,11 @@ export default function ContactPage() {
           </Paragraph>
         </div>
       </div>
-      <div id="slider" className="lg:w-1/3 w-full lg:mr-10 h-fit rounded-lg lg:overflow-hidden relative mb-10 lg:mb-0 pb-8 lg:pb-0">
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2, delay: 1.8, ease: "easeInOut" }}
+        id="slider" className="lg:w-1/3 w-full lg:mr-10 h-fit rounded-lg lg:overflow-hidden relative mb-10 lg:mb-0 pb-8 lg:pb-0">
         <Carousel
           plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
           setApi={api => setEmblaApi(api ?? null)}
@@ -99,7 +104,7 @@ export default function ContactPage() {
             ))}
           </div>
         </Carousel>
-      </div>
+      </motion.div>
     </div>
   );
 }

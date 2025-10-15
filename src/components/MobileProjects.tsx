@@ -240,21 +240,23 @@ export default function MobileProjects() {
               >
                 {data[currentIndex].description || "Description du projet à venir..."}
               </p>
-              <button
-                style={{ color: data[currentIndex].color }}
-                onClick={() => setVideoActive(!videoActive)}
-                className={`uppercase text-xs font-bold text-center my-8 ${isExpanded ? "block" : "hidden"}`}
-              >
-                {!videoActive ? (
-                  <>
-                    Watch the project <br /> presentation video
-                  </>
-                ) : (
-                  <>
-                    Back to project <br /> overview
-                  </>
-                )}
-              </button>
+              {activeProject && activeProject.video && isExpanded && !videoActive && (
+                <button
+                  style={{ color: data[currentIndex].color }}
+                  onClick={() => setVideoActive(!videoActive)}
+                  className={`uppercase text-xs font-bold text-center my-8 ${isExpanded ? "block" : "hidden"}`}
+                >
+                  {!videoActive ? (
+                    <>
+                      Watch the project <br /> presentation video
+                    </>
+                  ) : (
+                    <>
+                      Back to project <br /> overview
+                    </>
+                  )}
+                </button>
+              )}
               {activeProject && activeProject.github && isExpanded && (
                 <Link href={activeProject?.github} target="_blank">
                   <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 573.73 574.97">

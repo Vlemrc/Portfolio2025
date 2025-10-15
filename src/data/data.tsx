@@ -17,6 +17,7 @@ export const data: ProjectType[] = [
         bordercolor: "rgba(242, 109, 103, 0.15)",
         type: "Personal project",
         slug: "lespetalesobscurs",
+        video: "/videos/lespetalesobscurs.mov",
         github: "https://github.com/Vlemrc/LesPetalesObscurs"
     },
     {
@@ -66,7 +67,8 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(238 238 238)",
         bordercolor: "rgba(42, 128, 84, 0.15)",
         type: "BNP Paribas",
-        slug: "quiz-bnp"
+        slug: "quiz-bnp",
+        video: "/videos/quizbnp.mov",
     },
     {
         id: 4,
@@ -82,7 +84,8 @@ export const data: ProjectType[] = [
         bgcolor: "rgb(238 238 238)",
         bordercolor: "rgba(227, 6, 21, 0.15)",
         type: "Bimota",
-        slug: "bimota"
+        slug: "bimota",
+        video: "/videos/bimota.mov",
     },
     {
         id: 3,
@@ -98,6 +101,7 @@ export const data: ProjectType[] = [
         bordercolor: "rgba(255, 255, 255, 0.15)",
         type: "Personal project",
         slug: "eightytwo",
-        github: "https://github.com/Vlemrc/Ei8htytw2"
+        github: "https://github.com/Vlemrc/Ei8htytw2",
+        video: "/videos/video82.mov",
     },
 ]
