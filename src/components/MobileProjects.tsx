@@ -107,7 +107,7 @@ export default function MobileProjects() {
   }, [touchStart, touchEnd, isExpanded])
 
   return (
-    <div className={`${isExpanded ? "pt-[120px]" : "pt-20"} text-white p-8 px-0 relative h-full w-full items-center justify-center flex flex-col`}>
+    <div className={`${isExpanded ? "mt-[90px]" : "pt-20"} text-white p-8 px-0 relative h-full w-full items-center justify-center flex flex-col`}>
       <div ref={containerRef} className="relative w-full cursor-grab active:cursor-grabbing">
         <div className="flex items-center justify-center h-full gap-0 w-full transition-all duration-700 ease-in-out">
           <div
