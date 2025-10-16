@@ -52,6 +52,7 @@ export default function PathPage() {
   }, [])
 
   return (
+    // Test auto deployment
     <div className="
     w-full px-8 pt-[120px]
     lg:w-3/4 lg:pl-20 lg:pt-[70px] lg:pr-0 flex flex-col lg:flex-row h-fit items-end justify-between pr-10">
