@@ -23,10 +23,10 @@ export const data: ProjectType[] = [
     {
         id: 2,
         title: "Neuronote",
-        description: "A friend made Neuronote, an AI-powered study assistant to help students prepare for exams more efficiently. I crafted the whole user experience and interface for his app.",
+        description: "A friend made Neuronote, an AI-powered study assistant to help students prepare for exams more efficiently. I crafted the whole user experience and interface with Figma for his app.",
         image: "/images/neuronote.png",
         stack: [
-            "Figma"
+            "Figma, Next, Motion, Tailwind"
         ],
         year: 2025,
         link: "https://neuronote.app/",

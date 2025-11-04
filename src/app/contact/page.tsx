@@ -20,7 +20,6 @@ export default function ContactPage() {
     "/images/carousel/1.jpg",
     "/images/carousel/3.png",
     "/images/carousel/5.png",
-    "/images/carousel/7.png",
     "/images/carousel/8.png",
     "/images/carousel/6.png",
     "/images/carousel/IMG_1754.jpg",
