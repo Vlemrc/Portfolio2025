@@ -43,6 +43,14 @@ export default function MobileProjects() {
     console.log("Changement détecté :", { activeProject, isExpanded })
   }, [activeProject, isExpanded])
 
+  // Synchroniser isExpanded avec activeProject (pour fermer le projet quand on clique sur le logo)
+  useEffect(() => {
+    if (activeProject === null) {
+      setIsExpanded(false)
+      setVideoActive(false)
+    }
+  }, [activeProject])
+
   const getPrevIndex = () => (currentIndex - 1 + data.length) % data.length
   const getNextIndex = () => (currentIndex + 1) % data.length
 
@@ -128,9 +136,9 @@ export default function MobileProjects() {
             onClick={handleProjectClick}
             className="transition-all duration-700 ease-in-out h-full"
             style={{
-              flexBasis: isExpanded ? "100%" : "28rem",
+              flexBasis: "auto",
               margin: isExpanded ? "0" : "0 1rem",
-              flexGrow: isExpanded ? 1 : 0,
+              flexGrow: 1,
             }}
 
           >

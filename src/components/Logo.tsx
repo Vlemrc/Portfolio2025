@@ -96,8 +96,11 @@ export default function Logo({ color }: LogoProps) {
   }
 
   const handleHomeClick = () => {
-    if ( pathname !== "/" ) {
+    // Fermer le projet actif sur mobile si ouvert
+    if (activeProject) {
       setActiveProject(null)
+    }
+    if ( pathname !== "/" ) {
       playClick()
     }
   }
