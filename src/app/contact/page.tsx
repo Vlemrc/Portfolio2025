@@ -16,15 +16,14 @@ import { motion } from "framer-motion"
 export default function ContactPage() {
 
   const myImgs = [
+    "/images/carousel/IMG_2404.jpg",
     "/images/carousel/2.png",
-    "/images/carousel/1.jpg",
     "/images/carousel/3.png",
-    "/images/carousel/5.png",
     "/images/carousel/8.png",
+    "/images/carousel/IMG_2268.jpg",
     "/images/carousel/6.png",
     "/images/carousel/IMG_1754.jpg",
     "/images/carousel/11.JPG",
-    "/images/carousel/4.png",
   ]
 
   // Pour les bullets
