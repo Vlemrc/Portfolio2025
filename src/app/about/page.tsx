@@ -56,6 +56,6 @@ export default function AboutPage() {
             </div>
             <Resume />
         </div>
-      </div>
+    </div>
   )
 }
