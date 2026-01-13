@@ -63,7 +63,7 @@ export default function ContactPage() {
           </Paragraph>
 
           <Paragraph starttime={1.2}>
-            I am currently seeking a full-time position (CDI), available from October 2025.
+            I’m currently available for freelance projects and open to full-time opportunities (CDI).
           </Paragraph>
         </div>
       </div>

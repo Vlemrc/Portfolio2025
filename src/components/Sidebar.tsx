@@ -189,7 +189,7 @@ export default function Sidebar() {
                 className="text-white uppercase text-[10px] font-normal transition-colors duration-300"
                 style={{ color: activeProject?.color }}
               >
-                Web developer <br /> available oct. 2025
+                 Independant <br /> Web developer
               </p>
             </div>
         </div>
