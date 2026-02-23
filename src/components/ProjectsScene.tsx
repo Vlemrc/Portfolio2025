@@ -1,7 +1,7 @@
 "use client"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Html, Environment, useProgress } from "@react-three/drei"
-import { useRef, Suspense } from "react"
+import { useRef, Suspense, useState, useEffect } from "react"
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib"
 import type { Group } from "three"
 import { data } from "@/data/data"
@@ -63,7 +63,15 @@ function FloatingDivs({ items }: FloatingDivsProps) {
   const groupRef = useRef<Group>(null)
   const router = useRouter();
   const { activeProject, setActiveProject } = useProjectStore();
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
 
+  useEffect(() => {
+    items.forEach((_, index) => {
+      setTimeout(() => {
+        setVisibleItems(prev => new Set(prev).add(index));
+      }, index * 200);
+    });
+  }, [items]);
 
   const handleVisible = (item: ProjectType) => {
     router.replace(`/projects/${item.slug}`)
@@ -76,12 +84,13 @@ function FloatingDivs({ items }: FloatingDivsProps) {
         const angle = (index / items.length) * Math.PI * 2
         const x = Math.sin(angle) * radius
         const z = Math.cos(angle) * radius
+        const isVisible = visibleItems.has(index);
 
         return (
           <Html className={`${!activeProject ? "opacity-100 pointer-events-all" : "opacity-0 pointer-events-none"}`} key={item.id} position={[x, 0, z]} transform occlude distanceFactor={1.2} rotation={[0, angle, 0]}>
             <div className="floating-card">
               <div
-                className="p-4 h-[520px] w-[800px] bg-white bg-opacity-80 backdrop-blur-md rounded-xl shadow-lg grayscale hover:grayscale-0 transform transition-all duration-300 hover:scale-105 cursor-pointer"
+                className={`p-4 h-[520px] w-[800px] bg-white bg-opacity-80 backdrop-blur-md rounded-xl shadow-lg grayscale hover:grayscale-0 transform transition-all duration-500 hover:scale-105 cursor-pointer ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
                 style={{backgroundImage: `url(${item.image})`, backgroundSize: "cover", backgroundPosition: "center"}}
                 onClick={() => handleVisible(item)}
               >
