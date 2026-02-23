@@ -104,4 +104,36 @@ export const data: ProjectType[] = [
         github: "https://github.com/Vlemrc/Ei8htytw2",
         video: "/videos/video82.mov",
     },
+    {
+        id: 7,
+        title: "EDNA",
+        description: "Fashion-focused social app exploring outfits, clothing identity, and digital wardrobes. The project reimagines social posting by linking garments to looks, enabling discovery, personal vestiaires, and style-driven insights.",
+        image: "/images/edna.svg",
+        stack: [
+            "React Native", "TailwindCSS", "Next.JS", "Railway", "Figma", "AI", "PS"
+        ],
+        year: 2026,
+        color: "rgb(255 255 255)",
+        bgcolor: "#6F55E6",
+        bordercolor: "rgba(255, 255, 255, 0.15)",
+        type: "Personal project",
+        slug: "edna",
+        github: "https://github.com/Vlemrc/edna",
+    },
+    {
+        id: 8,
+        title: "Fondation SA",
+        description: "The project focuses on showcasing the foundation’s mission, programs, and supported athletes through a clear, accessible, and impact-driven web experience.",
+        image: "/images/fsa.jpg",
+        stack: [
+            "Wordpress", "ACF", "PHP", "JS", "GSAP"
+        ],
+        year: 2026,
+        color: "rgb(255 255 255)",
+        bgcolor: "#282323",
+        bordercolor: "rgba(255, 255, 255, 0.15)",
+        type: "Fondation Sport Ambition",
+        slug: "fondationsportambition",
+        link: "https://fondationsportambition.com/",
+    },
 ]

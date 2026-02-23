@@ -96,8 +96,9 @@ export default function ProjetPage() {
             <Image
               src={activeProject?.image ?? "/placeholder.png"}
               alt={activeProject?.title ?? "Project image"}
-              width={500}
-              height={300}
+              width={1500}
+              height={900}
+              quality={90}
               className={`w-full h-full object-cover ${displayProject ? "max-h-[400px]" : "max-h-[500px]"}`}
             />
           )}
