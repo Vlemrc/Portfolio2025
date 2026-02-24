@@ -122,14 +122,14 @@ export const data: ProjectType[] = [
     },
     {
         id: 8,
-        title: "Fondation SA",
+        title: "Fondation Sport Ambition",
         description: "The project focuses on showcasing the foundation’s mission, programs, and supported athletes through a clear, accessible, and impact-driven web experience.",
-        image: "/images/fsa.jpg",
+        image: "/images/fsa.png",
         stack: [
             "Wordpress", "ACF", "PHP", "JS", "GSAP"
         ],
         year: 2026,
-        color: "rgb(255 255 255)",
+        color: "#FDF2DE",
         bgcolor: "#282323",
         bordercolor: "rgba(255, 255, 255, 0.15)",
         type: "Fondation Sport Ambition",
