@@ -124,7 +124,7 @@ export default function MobileProjects() {
             }`}
           >
             <Image
-              src={data[getPrevIndex()].image || "/placeholder.svg"}
+              src={data[getPrevIndex()].imagemobile || data[getPrevIndex()].image || "/placeholder.svg"}
               alt={data[getPrevIndex()].title}
               width={500}
               height={200}
@@ -200,7 +200,7 @@ export default function MobileProjects() {
                   />
                 ) : (
                   <Image
-                    src={data[currentIndex].image || "/placeholder.svg"}
+                    src={data[currentIndex].imagemobile || data[currentIndex].image || "/placeholder.svg"}
                     alt={data[currentIndex].title}
                     width={500}
                     height={200}
@@ -281,7 +281,7 @@ export default function MobileProjects() {
             }`}
           >
             <Image
-              src={data[getNextIndex()].image || "/placeholder.svg"}
+              src={data[getNextIndex()].imagemobile || data[getNextIndex()].image || "/placeholder.svg"}
               alt={data[getNextIndex()].title}
               width={500}
               height={200}

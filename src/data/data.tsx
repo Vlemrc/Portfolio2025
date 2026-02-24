@@ -109,6 +109,7 @@ export const data: ProjectType[] = [
         title: "EDNA",
         description: "Fashion-focused social app exploring outfits, clothing identity, and digital wardrobes. The project reimagines social posting by linking garments to looks, enabling discovery, personal vestiaires, and style-driven insights.",
         image: "/images/edna.svg",
+        imagemobile: "/images/edna-mobile.svg",
         stack: [
             "React Native", "TailwindCSS", "Next.JS", "Railway", "Figma", "AI", "PS"
         ],

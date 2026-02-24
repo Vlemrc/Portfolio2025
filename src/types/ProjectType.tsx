@@ -3,6 +3,7 @@ export interface ProjectType {
   title: string
   description: string
   image: string
+  imagemobile?: string
   stack: string[]
   year: number
   link?: string
