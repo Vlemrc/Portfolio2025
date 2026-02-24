@@ -26,7 +26,7 @@ export default function Home() {
           transition={{
             opacity: { duration: 0.3, delay: 0.5, ease: "easeInOut" }
           }}
-          className="w-full lg:w-3/4 z-0 lg:z-auto"
+          className="w-full lg:flex-1 z-0 lg:z-auto"
         >
           <FloatingScene />
         </motion.div>

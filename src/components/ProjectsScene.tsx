@@ -28,7 +28,10 @@ interface FloatingDivsProps {
 }
 
 export default function FloatingScene() {
-  const items = data
+  // Réordonne pour desktop : met le 2e projet en dernier
+  const items = data.length > 1
+    ? [data[0], ...data.slice(2), data[1]]
+    : data
   const controlsRef = useRef<OrbitControlsImpl>(null)
 
   return (

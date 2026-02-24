@@ -9,7 +9,7 @@ export const data: ProjectType[] = [
         image: "/images/edna.svg",
         imagemobile: "/images/edna-mobile.svg",
         stack: [
-            "React Native", "TailwindCSS", "Next.JS", "Railway", "Figma", "AI", "PS"
+            "React.Native", "TailwindCSS", "Next.JS", "Railway", "Figma", "AI", "PS"
         ],
         year: 2026,
         color: "rgb(255 255 255)",
@@ -21,6 +21,22 @@ export const data: ProjectType[] = [
     },
     {
         id: 7,
+        title: "Fondation Sport Ambition",
+        description: "The project focuses on showcasing the foundation's mission, programs, and supported athletes through a clear, accessible, and impact-driven web experience.",
+        image: "/images/fsa.png",
+        stack: [
+            "Wordpress", "ACF", "PHP", "JS", "GSAP"
+        ],
+        year: 2026,
+        color: "#FDF2DE",
+        bgcolor: "#282323",
+        bordercolor: "rgba(255, 255, 255, 0.15)",
+        type: "Fondation Sport Ambition",
+        slug: "fondationsportambition",
+        link: "https://fondationsportambition.com/",
+    },
+    {
+        id: 6,
         title: "Neuronote",
         description: "A friend made Neuronote, an AI-powered study assistant to help students prepare for exams more efficiently. I crafted the whole user experience and interface with Figma for his app.",
         image: "/images/neuronote.png",
@@ -36,7 +52,7 @@ export const data: ProjectType[] = [
         slug: "neuronote"
     },
     {
-        id: 6,
+        id: 5,
         title: "Notes AI",
         description: "I made this Apple Notes clone with AI features for my Master's Degree project. I made a speech to present my project and a little video to introduce this new \"learning mode\". Ahead of Apple Intelligence.",
         image: "/images/applenotes.jpg",
@@ -53,7 +69,7 @@ export const data: ProjectType[] = [
         github: "https://github.com/Vlemrc/applenotes-ai"
     },
     {
-        id: 5,
+        id: 4,
         title: "EightyTwo",
         description: "Promotional website for Eighty Two. I aim to create a complete wordpress site to train, with CPTUI to register wines and events. A club for wine enthusiasts.",
         image: "/images/eightytwo.png",
@@ -70,7 +86,7 @@ export const data: ProjectType[] = [
         video: "/videos/video82.mov",
     },
     {
-        id: 4,
+        id: 3,
         title: "Les pétales obscurs",
         description: "I made this promotional website for a fictional clothing brand. The goal was to train with GSAP. Bloom in the shadows.",
         image: "/images/lespetalesobscurs.png",
@@ -88,7 +104,7 @@ export const data: ProjectType[] = [
         github: "https://github.com/Vlemrc/LesPetalesObscurs"
     },
     {
-        id: 3,
+        id: 2,
         title: "Bimota",
         description: "Webflow site to promote Bimota motos. My first project with webflow in my previous experience in Altavia Disko.",
         image: "/images/bimota.jpg",
@@ -105,7 +121,7 @@ export const data: ProjectType[] = [
         video: "/videos/bimota.mov",
     },
     {
-        id: 2,
+        id: 1,
         title: "Quiz BNP",
         description: "A quiz to test your knowledge about your electricity consumptions. 4 days to create this quiz from scratch with Wordpress and ACF.",
         image: "/images/quiz-habitat.jpg",
@@ -120,21 +136,5 @@ export const data: ProjectType[] = [
         type: "BNP Paribas",
         slug: "quiz-bnp",
         video: "/videos/quizbnp.mov",
-    },
-    {
-        id: 1,
-        title: "Fondation Sport Ambition",
-        description: "The project focuses on showcasing the foundation's mission, programs, and supported athletes through a clear, accessible, and impact-driven web experience.",
-        image: "/images/fsa.png",
-        stack: [
-            "Wordpress", "ACF", "PHP", "JS", "GSAP"
-        ],
-        year: 2026,
-        color: "#FDF2DE",
-        bgcolor: "#282323",
-        bordercolor: "rgba(255, 255, 255, 0.15)",
-        type: "Fondation Sport Ambition",
-        slug: "fondationsportambition",
-        link: "https://fondationsportambition.com/",
     },
 ]
