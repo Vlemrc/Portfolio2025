@@ -5,7 +5,7 @@ export const data: ProjectType[] = [
     {
         id: 8,
         title: "EDNA",
-        description: "Fashion-focused social app exploring outfits, clothing identity, and digital wardrobes. The project reimagines social posting by linking garments to looks, enabling discovery, personal vestiaires, and style-driven insights.",
+        description: "Fashion-focused social app exploring outfits, clothing identity, and digital wardrobes. The project reimagines social posting by linking garments to looks, enabling discovery, personal vestiaires, and style-driven insights. NOW LIVE on IOS ! and soon in Google Play...",
         image: "/images/edna.svg",
         imagemobile: "/images/edna-mobile.svg",
         stack: [
@@ -18,6 +18,7 @@ export const data: ProjectType[] = [
         type: "Personal project",
         slug: "edna",
         github: "https://github.com/Vlemrc/edna",
+        link: "https://apps.apple.com/us/app/edna-mode/id6758439302?l=fr-FR",
     },
     {
         id: 7,
