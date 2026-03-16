@@ -5,7 +5,7 @@ export const data: ProjectType[] = [
     {
         id: 8,
         title: "EDNA",
-        description: "Fashion-focused social app exploring outfits, clothing identity, and digital wardrobes. The project reimagines social posting by linking garments to looks, enabling discovery, personal vestiaires, and style-driven insights. NOW LIVE on IOS ! and soon in Google Play...",
+        description: "Fashion-focused social app exploring outfits, clothing identity, and digital wardrobes. The project reimagines social posting by linking garments to looks, enabling discovery, personal vestiaires, and style-driven insights. My first React Native project, where I handled both the app development and the design of the full visual identity. NOW LIVE on IOS ! and soon in Google Play...",
         image: "/images/edna.svg",
         imagemobile: "/images/edna-mobile.svg",
         stack: [
